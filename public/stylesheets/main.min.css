@@ -1,24 +1,34 @@
-p {
-  background-color: #FF0000;
-  color: #1A237E;
+/*@background-color: #FF0000;
+@text-color: #1A237E;
+@fontfamily:"Times new roman";
+@font_size :50px;  // declared a custom variable called font_size   
+
+p{
+  background-color: @background-color;
+  color: @text-color;
   padding: 17px;
 }
-ul {
-  background-color: #FF0000;
+
+ul{
+  background-color: @background-color;
 }
-li {
-  color: #1A237E;
+
+li{
+  color: @text-color;
 }
+
 #divheader {
-  font-family: "Times new roman";
-  color: #1A237E;
-  background: #FF0000;
-  font-size: 50px;
+font-family: @fontfamily;
+color:@text-color;
+background: @background-color;
+font-size: @font_size;
 }
-.class1 {
+
+.class1 {  
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: green;
-  color: #fff;
-  font-size: 50px;
+  background-color: green;  
+  color:#fff;  
+  font-size: @font_size;
   padding: 0px 0px 5px 30px;
-}
+}  
+*/

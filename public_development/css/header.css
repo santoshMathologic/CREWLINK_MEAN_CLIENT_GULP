@@ -1,0 +1,50 @@
+/* Header Right Icon*/
+#header ul {
+    list-style: none;
+    }
+    
+#header #welcome {
+    margin-right: 20px;
+	}
+    
+.header-icon{
+	float:left;
+	color: aliceblue;
+	margin-right: 4px;
+	}
+	
+.dropdown-toggle{
+	color: aliceblue;
+	text-decoration: none; 
+	cursor: pointer;
+}
+.fa-bell {
+	color: aliceblue;
+}
+
+.fa-sign-out{
+	color: aliceblue;
+}
+
+#header .fixed-width {
+    width: 35px;
+}
+
+#header .profile-icon{
+	margin-left: 5px; 
+	margin-right: 20px; 
+	margin-top: 22px;
+}
+
+#header .profile-icon #profile-pics{
+	border-radius: 40px; 
+	margin-top: -56px; 
+	text-decoration: none; 
+	cursor: pointer;
+	height: 40px;
+}
+
+#header .logout{
+	margin-right: 10px; 
+	margin-left: 10px;
+}

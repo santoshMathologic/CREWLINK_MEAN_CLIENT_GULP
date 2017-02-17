@@ -57,6 +57,24 @@ var app = angular.module("crewMeanApp", [
                             });
                     }
                 }
+            }).state('home.login',
+            {
+                templateUrl: 'ng/directives/login/login.directive.html',
+                url: '/login',
+                controller:'LoginCtrl',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/login/login.js',
+                                     'ng/controller/login.js'
+
+                                ]
+                            });
+                    }
+                }
             });
 
 

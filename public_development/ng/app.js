@@ -51,7 +51,25 @@ var app = angular.module("crewMeanApp", [
                             {
                                 name: 'crewMeanApp',
                                 files: [
-                                    'ng/directives/dashboard/blank/blank/blank.js'
+                                    'ng/directives/dashboard/blank/blank.js'
+
+                                ]
+                            });
+                    }
+                }
+            }).state('home.login',
+            {
+                templateUrl: 'ng/directives/login/login.directive.html',
+                url: '/login',
+                controller:'LoginCtrl',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/login/login.js',
+                                     'ng/controller/login.js'
 
                                 ]
                             });
