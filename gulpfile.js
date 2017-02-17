@@ -13,16 +13,16 @@ var inputPath   = "public_development";
 var output      = outputPath + '/'; // added slash to input folder (public)
 var input       = inputPath  + '/'; // added slash to output folder  (public_development)
 
-var gulp                    = require("gulp"),
-    runSequences            = require("run-sequence"),
-    cssnano                 = require('gulp-cssnano'),
-    merge                   = require('merge-stream'),
-    fs                      = require('fs'),
-    concat                  = require('gulp-concat'),
-    browserSync             = require('browser-sync').create(),
-    jshint                  = require('gulp-jshint'),
-    less                    = require('gulp-less'),
-    useref                  = require('gulp-useref');
+var gulp            = require("gulp"),
+    runSequences    = require("run-sequence"),
+    cssnano         = require('gulp-cssnano'),
+    merge           = require('merge-stream'),
+    fs              = require('fs'),
+    concat          = require('gulp-concat'),
+    browserSync     = require('browser-sync').create(),
+    jshint          = require('gulp-jshint'),
+    less            = require('gulp-less'),
+    useref          = require('gulp-useref');
 var dir = './'+inputPath;
 
 if (!fs.existsSync(dir)){
@@ -56,8 +56,13 @@ gulp.task("styles",function(){
 
 });
 
+gulp.task('javascriptLib', function() {
+    return gulp.src(input + 'js/*.js')
+        .pipe(gulp.dest(output + 'js/'));
+})
+
 gulp.task('jshint', function() {
-  return gulp.src(input+"/js/**/*.js")
+  return gulp.src(input + "js/**/*.js")
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -85,9 +90,9 @@ gulp.task('watch', ['browserSync', 'styles'], function() {
         // Reloads the browser whenever HTML or JS files change
     gulp.watch(input + "css/**/*.css", ['styles']);
     gulp.watch(input + "scss/**/*.scss", ['styles']);
-    gulp.watch(input + "less/**/*.less", ['less']);
+    gulp.watch(input + "less/**/*.less", ['styles']);
     gulp.watch(input + "**/*.html", ['useref']);
-    gulp.watch(input + "js/**/*.js", ['lint']);
+    gulp.watch(input + "js/**/*.js", ['javascriptLib']);
     
     gulp.watch(input + '**/*', browserSync.reload);
     //gulp.watch(input + 'js/**/*.js', browserSync.reload);
@@ -113,7 +118,7 @@ gulp.task('browserSync', function() {
 
 gulp.task('default',function(callback){
 
-    runSequences(['styles','browserSync', 'watch','useref','jshint','less'],callback);
+    runSequences(['styles','browserSync', 'watch','useref','jshint','less','javascriptLib'],callback);
     console.log("at default");
 
 });
