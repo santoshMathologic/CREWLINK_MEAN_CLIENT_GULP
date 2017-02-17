@@ -10,21 +10,19 @@
 
 var outputPath  = "public";
 var inputPath   = "public_development";
-
 var output      = outputPath + '/'; // added slash to input folder (public)
 var input       = inputPath  + '/'; // added slash to output folder  (public_development)
 
-
-
-var gulp                    = require("gulp");
-var runSequences            = require("run-sequence");
-var cssnano                 = require('gulp-cssnano');
-var merge                   = require('merge-stream');
-var fs                      = require('fs');
-var concat                  = require('gulp-concat');
-var browserSync             = require('browser-sync').create();
-var jshint                  = require('gulp-jshint');
-var useref                  = require('gulp-useref');
+var gulp                    = require("gulp"),
+    runSequences            = require("run-sequence"),
+    cssnano                 = require('gulp-cssnano'),
+    merge                   = require('merge-stream'),
+    fs                      = require('fs'),
+    concat                  = require('gulp-concat'),
+    browserSync             = require('browser-sync').create(),
+    jshint                  = require('gulp-jshint'),
+    less                    = require('gulp-less'),
+    useref                  = require('gulp-useref');
 var dir = './'+inputPath;
 
 if (!fs.existsSync(dir)){
@@ -66,19 +64,15 @@ gulp.task('jshint', function() {
 
 gulp.task('useref', function() {
 
-    if (process.env.NODE_ENV == 'development' || process.env.NODE_ENV == undefined) {
-        console.log('in development');
+    if (process.env.NODE_ENV == 'development' || process.env.NODE_ENV === undefined) {
+        console.log(process.env.NODE_ENV);
         return gulp.src(input + '*.html')
-
-        
-          
             .pipe(useref())
-           
             .pipe(gulp.dest(output));
     }
     else {
-        console.log('iin production');
-        console.log(process.env.NODE_ENV);
+                
+                console.log(process.env.NODE_ENV);
         return gulp.src(input + '*.html')
         .pipe(useref())
         .pipe(gulp.dest(output));
