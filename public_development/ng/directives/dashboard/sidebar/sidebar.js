@@ -1,10 +1,10 @@
 ' use strict';
 
 angular.module('crewMeanApp')
-    .directive('blank', ['$compile', function($compile) {
+    .directive('sidebar', ['$compile', function($compile) {
         return {
             restrict: 'E',
-            templateUrl: 'ng/directives/blank/blank.tmpl.html',
+            templateUrl: 'ng/directives/dashboard/sidebar/sidebar.tmpl.html',
             controller: function($scope, $state) {
                 
             }
