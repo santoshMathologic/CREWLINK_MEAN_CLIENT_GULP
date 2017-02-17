@@ -1,0 +1,235 @@
+
+<div>
+
+<div class="row">
+		<div class="col-lg-8">
+			
+			<h4>
+				<div id="breadcrumbs">
+					<div class="button">
+						<span class="label">{{headertitle[0]}}</span> <span class="arrow"><span></span></span>
+					</div>
+					<div class="button">
+						<span class="label">{{headertitle[1]}}</span> <span class="arrow"><span></span></span>
+					</div>
+					<div class="button">
+						<span class="label">{{headertitle[2]}}</span> <span class="arrow"><span></span></span>
+					</div>
+
+				</div>
+				</h4>
+
+			 <hr class="customHr" />
+		</div>
+
+
+
+	</div>
+
+	
+
+
+	<div class="panel-body">
+
+
+
+		<toaster-container
+			toaster-options="{'time-out': 3000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+
+	</div>
+
+	<div class="table-responsive">
+
+		<table class="table table-condensed">
+
+
+			<thead>
+				<tr>
+					<th>COMPANY NAME</th>
+					<th>COMPANYADD</th>
+					<th>CITY</th>
+					<th>STATE</th>
+					<th>COUNTRY</th>
+					<th>SHORT_VENUE</th>
+					<th>VENUE</th>
+					<th>WALK-IN TIME</th>
+					<th>WALK-IN DATE</th>
+
+				</tr>
+			</thead>
+			<tbody>
+			<strong>
+					<span ng-show="isInputDisable" class="btn-danger">No Search Records Found</span></strong>
+				<tr ng-repeat="(nCount,choice) in choices track by $index">
+					<td>
+					
+						<div angucomplete-alt placeholder="Search Company" maxlength="50" st-ratio="100"
+							pause="300" id="company" search-fields="companyName" text-searching="No Recors Found........"
+							title-field="companyName" remote-api-handler="getCompanyDetails"
+							remote-url-data-field="companydetails"
+							selected-object="selectedCompany" minlength="1"
+							input-class="form-control form-control-small"
+							match-class="highlight" disable-input="isDisable" field-required="true" listener>
+							
+							
+							
+							
+							</div>
+							
+						
+							
+							<!-- <div databinding="options"></div> -->
+							 <br />
+							 
+					    <input type="text" class="form-control input-sm" ng-model="choice.companydetailobject.companydetails.companyName" ng-show="isInputDisable" placeholder="companyName"  />
+					</td>
+					<td><input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].companyAddress"
+						placeholder="address" />
+						
+						<br>
+						<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobject.companydetails.companyAddress"
+						placeholder="address" ng-show="isInputDisable"/>
+						
+						
+						
+						</td>
+					<td>
+					<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].city"
+						placeholder="city" />
+					
+					<br/>
+					
+					<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobject.companydetails.city"
+						placeholder="city" ng-show="isInputDisable" />
+						
+						
+						
+						</td>
+					<td>
+					
+					<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].state"
+						placeholder="state" />
+					
+					<br/>
+						
+					<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobject.companydetails.state"
+						placeholder="state" ng-show="isInputDisable" />
+						
+					
+						
+						</td>
+					<td><input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].country"
+						placeholder="country" />
+						
+						<br/>
+						
+						<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobject.companydetails.country"
+						placeholder="country" ng-show="isInputDisable" />
+						
+						
+						</td>
+					<td><input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].shortVenue" placeholder="venu1"  />
+						
+						<br/>
+						
+						<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobject.shortVenue" placeholder="venu1" ng-show="isInputDisable" />
+						
+						</td>
+					<td><input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].venu" placeholder="venu2" />
+						
+						<br/>
+						<input type="text" class="form-control input-sm"
+						ng-model="choice.companydetailobject.venu" placeholder="venu2" ng-show="isInputDisable"/>
+						
+						</td>
+					<td><input type="time" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].walkingTime"
+						placeholder="HH:mm:ss" required />
+						
+						<br/>
+						<input type="time" class="form-control input-sm"
+						ng-model="choice.companydetailobject.walkingTime"
+						placeholder="HH:mm:ss" required ng-show="isInputDisable"/>
+						
+						</td>
+					<td><input type="date" class="form-control input-sm"
+						ng-model="choice.companydetailobj.companydetails[nCount].walkingdate" placeholder="date"  />
+						
+						<br/>
+						
+						<input type="date" class="form-control input-sm"
+						ng-model="choice.companydetailobject.walkingdate" placeholder="date" ng-show="isInputDisable" />
+						
+						</td>
+
+
+
+
+
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td>
+
+						<button ng-click="addDynamicRow()" class="btn btn-primary">
+							<i class="fa fa-plus" aria-hidden="true"></i> Add Row
+						</button>
+
+
+
+					</td>
+
+					<td>
+						<button ng-click="removeDynamicRow(choice)" class="btn btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>Remove Row
+						</button>
+					</td>
+
+
+
+					<td>
+						<button type="button" class="btn btn-success btn-xs" ng-disabled="isDisable"
+							data-ng-click="saveCompany()">
+							<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+						</button>
+						
+						<button type="button" class="btn btn-primary btn-xs"
+							data-ng-click="saveSingleCompany()" ng-show="isInputDisable">
+							<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+						</button>
+
+						<button type="button" class="btn btn-danger btn-xs"
+							data-ng-click="reset()">
+							<i class="fa fa-refresh fa-2x" aria-hidden="true"></i>
+						</button>
+					</td>
+
+
+				</tr>
+
+
+
+
+			</tbody>
+
+		</table>
+
+	</div>
+
+
+
+
+
+</div>
