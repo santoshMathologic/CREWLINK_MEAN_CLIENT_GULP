@@ -86,15 +86,23 @@ gulp.task('useref', function() {
 });
 
 
+gulp.task('ng', function() {
+    console.log("ng is updating");
+    return gulp.src(input + 'ng/**/*')
+        .pipe(gulp.dest(output + 'ng'))
+});
+
+
 gulp.task('watch', ['browserSync', 'styles'], function() {
-        // Reloads the browser whenever HTML or JS files change
+    // Reloads the browser whenever HTML or JS files change
     gulp.watch(input + "css/**/*.css", ['styles']);
     gulp.watch(input + "scss/**/*.scss", ['styles']);
     gulp.watch(input + "less/**/*.less", ['less']);
+    gulp.watch(input + 'ng/**/*', ['ng', 'useref']);
     gulp.watch(input + "**/*.html", ['useref']);
     gulp.watch(input + "js/**/*.js", ['javascriptLib']);    
     gulp.watch(input + '**/*', browserSync.reload);
-    //gulp.watch(input + 'js/**/*.js', browserSync.reload);
+    
 });
 
 
@@ -117,7 +125,7 @@ gulp.task('browserSync', function() {
 
 gulp.task('default',function(callback){
 
-    runSequences(['styles','browserSync', 'watch','useref','jshint','less','javascriptLib'],callback);
+    runSequences(['styles','browserSync', 'watch','useref','jshint','less','javascriptLib','ng'],callback);
     console.log("at default");
 
 });

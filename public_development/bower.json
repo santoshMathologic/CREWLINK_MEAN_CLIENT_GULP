@@ -1,0 +1,22 @@
+{
+  "name": "CREWLINK_MEAN_CLIENT_GULP",
+  "homepage": "https://github.com/santoshMathologic/CREWLINK_MEAN_CLIENT_GULP",
+  "authors": [
+    "santosh"
+  ],
+  "description": "This is sample Project to test GULP",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2"
+  }
+}
