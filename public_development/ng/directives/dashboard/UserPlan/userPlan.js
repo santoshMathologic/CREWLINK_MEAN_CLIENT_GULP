@@ -1,10 +1,10 @@
 ' use strict';
 
 angular.module('crewMeanApp')
-    .directive('blank', ['$compile', function ($compile) {
+    .directive('userPlan', ['$compile', function ($compile) {
         return {
             restrict: 'E',
-            templateUrl: 'ng/directives/dashboard/blank/blank.tmpl.html',
+            templateUrl: 'ng/directives/dashboard/UserPaln/userPlan.tmpl.html',
             controller: function ($scope, $state, $http) {
 
                 $scope.crewTypeList = [];
