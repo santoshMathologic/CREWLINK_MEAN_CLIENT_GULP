@@ -4,7 +4,7 @@ angular.module('crewMeanApp')
     .directive('userPlan', ['$compile', function ($compile) {
         return {
             restrict: 'E',
-            templateUrl: 'ng/directives/dashboard/UserPaln/userPlan.tmpl.html',
+            templateUrl: 'ng/directives/dashboard/UserPlan/userPlan.tmpl.html',
             controller: function ($scope, $state, $http) {
 
                 $scope.crewTypeList = [];

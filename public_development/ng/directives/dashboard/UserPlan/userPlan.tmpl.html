@@ -1,176 +1,161 @@
+
 <div>
- <h1>plan</h1>
 
-  <table class="table table-hover table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+		<div class="col-lg-8">
+			
+			<h4>
+				<div id="breadcrumbs">
+					<div class="button">
+						<span class="label">{{headertitle[0]}}</span> <span class="arrow"><span></span></span>
+					</div>
+					<div class="button">
+						<span class="label">{{headertitle[1]}}</span> <span class="arrow"><span></span></span>
+					</div>
+					<div class="button">
+						<span class="label">{{headertitle[2]}}</span> <span class="arrow"><span></span></span>
+					</div>
 
+				</div>
+				</h4>
 
-  <table class="table table-hover table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  
-  <table class="table table-hover table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  
-  <table class="table table-hover table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  
-  <table class="table table-hover table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-
-  
-  <table class="table table-hover table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
+			 <hr class="customHr" />
+		</div>
 
 
 
+	</div>
+	
+
+
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header">
+				Current User Plan  <span
+					ng-show="UserService.getSelectedUserPlan().id!=null">:
+					{{UserService.getSelectedUserPlan().name}}</span>
+					<span
+					ng-show="UserService.getSelectedUserPlan().id==null">:
+					Not Selected</span>
+			</h2>
+		</div>
+	</div>
+	<div class="row userPlans">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">User Plans List
+				
+				<div class="input-group pull-right">
+                        <div class="form-group">
+                            <label class="col-lg-8 control-label">Item Per Page(1-100)</label>
+                            <div class="col-lg-4">
+                                <input name="limit" class="input-sm form-control pull-right ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min"
+                                    min="1" max="100" value="5" step="1" type="number" ng-model-options="{ debounce: 1000 }"
+                                    ng-model="query.limit">
+                            </div>
+                        </div>
+                    </div>
+				
+				
+				</div>
+				
+				<div class="panel-body">
+					<table class="table table-striped table-condensed" st-pipe="serverFetch.process" st-table="userPlanList">
+						<thead><tr><th>S.No</th>
+								  <th st-ratio="10" st-sort="planName">Plan name</th>
+								  <th>Owner	</th>
+								  <th>Co_Planner</th>
+								  <th>Complete</th>
+								  <th>Locked</th>
+								  <th>UnderReview</th>
+								  <th>Reviewer</th>
+								  <th>Created Time</th>
+								  <th>Action</th>
+								  </tr>
+								  <tr>
+						<th>&nbsp;</th>
+						<th><input type="text"  class="form-control input-sm"
+									placeholder="Plan Name" st-search="planName"
+									st-delay="1000" /></th>
+
+								<th><input type="text" class="form-control input-sm"
+									placeholder="Owner"  st-search="owner"
+									st-delay="1000" /></th>
+
+								<th><input type="text"  class="form-control input-sm"
+									placeholder="Last Name"  /></th>
+
+								<th><input type="text"  class="form-control input-sm"
+									placeholder="Mobile"  /></th>
+									
+								<th><input type="text"  class="form-control input-sm"
+									placeholder="password"  /></th>
+
+								<th><input type="text"  class="form-control input-sm"
+									placeholder="password"  /></th>
+
+							
+								<th><select class="form-control input-sm">
+										<option value="" selected>All</option>
+										<option value="true">Only Active</option>
+										<option value="false">Ony InActive</option>
+								</select></th>
+									<th><input type="text" class="form-control input-sm"
+									placeholder="Extension"  /></th>
+								
+									
+									
+									<th></th>
+								
+							
+						
+						</tr>
+								  </thead>
+						<tbody>
+							<tr ng-repeat="userplan in userPlanList">
+								<td>{{$index+1}}</td>
+								<td>{{userplan.planName}}</td>
+								<td>{{userplan.owner}}</td>
+								
+								<td>{{userplan.co_planner}}</td>
+								<td>{{userplan.isComplete}}</td>
+								<td>{{userplan.isLocked}}</td>
+								<td>{{userplan.isUnderReview}}</td>
+								<td>{{userplan.reviewer}}</td>
+								<td>{{userplan.timeStamp | date:short}}</td>
+								<td>
+									<button class="btn btn-xs btn-success" ng-click="selectUserPlan(userplan)">
+									<i class="fa fa-undo" aria-hidden="true"></i>
+									</button>
+									<button class="btn btn-xs btn-warning" ng-click="updateUserPlan(userplan)" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></button>
+									<button
+									class="btn btn-xs btn-danger fa fa-remove"
+									ng-click="deleteUserPlan(userplan)"
+									confirm="Are you sure to delete !!!"
+									confirm-settings="{size: 'md'}"
+									confirm-header-class="confirm-header-danger "
+									confirm-footer-class="confirm-footer-default"
+									confirm-ok-button-class="btn-danger"
+									confirm-cancel-button-class="btn-default"
+									confirm-title="Confirm Deletion!!" confirm-ok="Yes"
+									confirm-cancel="No" title="Remove"> </button>
+								</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+
+
+
+
+	
+	
+	
+	
 </div>

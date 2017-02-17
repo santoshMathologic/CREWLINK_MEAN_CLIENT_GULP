@@ -1,2 +1,58 @@
 
+<div>
 <user-plan></user-plan>
+<div class="row">
+<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">{{action}} User Plan
+					<span ng-show="!isSave" class="pull-right" style="margin-top: -5px;">
+						<button class="btn btn-sm btn-primary" ng-click="setInitValues()">Create User Plan</button>
+					</span>
+				</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12" >
+							<form name="planForm" novalidate>
+								
+								
+								<div class="form-group" ng-class="{ 'has-error' : planForm.userplanname.$invalid && !planForm.userplanname.$pristine,'has-success': !planForm.userplanname.$invalid}">
+									<label class="control-label">User Name </label> 
+									<input
+										type="text" name="userplanname" ng-model="userPlan.name"
+										class="form-control" placeholder="Enter User Plan  Name"
+										required="true"/> 
+										  
+										
+									 <p ng-show="planForm.userplanname.$invalid && !planForm.userplanname.$pristine" class="help-block">Plan name is required.</p>
+							
+								</div>
+								<div class="form-group">
+									<input ng-show="isSave" type="submit" class="btn btn-primary btn-sm"
+										ng-click="submitted=true;saveUserPlan(userPlan,'create')" value="Create Plan" />
+									<input ng-show="!isSave" type="submit" class="btn btn-primary btn-sm"
+										ng-click="submitted=true;save(userPlan,'update')" value="Update Plan" />
+									
+								</div>
+								<div class="form-group">
+									<input ng-show="!isSave" type="text" ng-click="submitted=false"
+										ng-model="copyUserPlan.newUserPlanName" class="form-control input-md" name="planName" placeholder="Enter User Plan Name"/> 
+										<br />
+										<span style="color: red"
+										ng-show="true">Copy Plan name is
+											required.</span>
+											
+									<input ng-show="!isSave && !isCopying" type="submit" class="btn btn-warning btn-sm"
+										ng-click="copyPlan()" value="Copy Plan" />
+									<button ng-show="!isSave && isCopying" class="btn btn-danger btn-sm">Copying In Process</button>
+									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+</div>

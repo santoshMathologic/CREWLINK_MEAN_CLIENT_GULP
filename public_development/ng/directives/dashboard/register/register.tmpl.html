@@ -1,0 +1,200 @@
+
+<div>
+
+<div class="row">
+		<div class="col-lg-8">
+			<h4>
+				<div id="breadcrumbs">
+					<div class="button">
+						<span class="label">{{headertitle[0]}}</span> <span class="arrow"><span></span></span>
+					</div>
+					<div class="button">
+						<span class="label">{{headertitle[1]}}</span> <span class="arrow"><span></span></span>
+					</div>
+					<div class="button">
+						<span class="label">{{headertitle[2]}}</span> <span class="arrow"><span></span></span>
+					</div>
+
+				</div>
+				</h4>
+			 <hr class="customHr" />
+		</div>
+	</div>
+        
+
+
+
+<div class="container">
+  <h2>Create User</h2>
+  
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"> User Creation</div>
+      <div class="panel-body">
+      
+      <div class="col-lg-12" id="userFormDiv">
+		<ng-form name="userFormDetail" novalidate>
+			<div class="col-lg-8">
+				<div class="form-group">
+					<label class="control-label">User Name </label> <input type="text"
+						name="username" ng-required="true" class="form-control"
+						placeholder="Enter User Name" ng-model="userdetails.username" > 
+						
+						<span style="color: red"
+						ng-show="isUserInvalid" ng-cloak>
+						<span ng-show="isUserInvalid">User Name
+							is required.</span>
+					</span>
+						
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Password</label> <input 
+						name="password" ng-required="true" class="form-control" type="{{inputType}}"  
+						placeholder="Enter Your Password" ng-model="userdetails.password" ng-change="passwordBarStatus(userFormDetail)"> 
+						
+						<input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()" />
+  						<label for="checkbox" ng-if="passwordCheckbox">Hide password</label>
+  						<label for="checkbox" ng-if="!passwordCheckbox">Show password</label>
+						
+						
+						<!-- <input ng-hide="showpassword" type="text" ng-model="userdetails.password" class="form-control" placeholder="Enter Your Password">
+						<input type="checkbox" ng-model="showpassword" ng-checked="false"> show/hide password -->
+						<br>
+						<span class="pswdinfo col-sm-16">
+                        <span class="left password-label-width">Password strength : </span><span><strong>{{passwordStrength}}</strong></span>
+						
+						<div class="clear-both height20"></div>
+						
+                     
+						<span class="left margin-bottom10 progress-container-width progress prgs-padding col-sm-16 col-xs-12">
+                            <span class="progress prgs-padding">
+                            <span ng-if="progressStatus === 'white'" ng-class="progressStatus" strength = "passwordStrength" class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" ng-style="{width: '10 % '}"></span>
+                            <span ng-if="progressStatus === 'red'" ng-class="progressStatus" strength = "passwordStrength" class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" ng-style="{width: '10 % '}"></span>
+                            <span ng-if="progressStatus === 'amber'" ng-class="progressStatus" strength = "passwordStrength" class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" ng-style="{width: '10 % '}"></span>
+                            <span ng-if="progressStatus === 'green'" ng-class="progressStatus" strength = "passwordStrength" class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" ng-style="{width: '10 % '}"></span>
+                        </span>
+                    </span>
+                    </span>
+                    
+                    
+					
+						<span style="color: red"
+						ng-show="isUserInvalid">
+						<span ng-show="isUserInvalid">Password 
+							is required.</span>
+					</span>
+					
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Re-Password</label> <input 
+						name="repassword" ng-required="true" class="form-control" type="text" 
+						placeholder="Enter Your Re-Password" ng-model="userdetails.repasswrd" password-match="userdetails.password"> 
+						
+					 <div ng-class="{pass_error:isUserInvalid}" ng-show='isUserInvalid'>
+                            <span class='msg-error' ng-show='isUserInvalid'>
+                            Passwords don't match.
+                            </span>
+                        </div>
+					
+				</div>
+				
+				
+				
+				<div class="form-group">
+					<label class="control-label">First Name</label> <input
+						placeholder="Enter First Name" ng-model="userdetails.firstName" ng-required="true"
+						name="firstname" type="text" class="form-control"> 
+					
+				</div>
+				<div class="form-group">
+					<label class="control-label" ng-required="true">Last Name</label> <input
+						placeholder="Enter Last Name" type="text" ng-model="userdetails.lastName" class="form-control">
+				</div>
+				<div class="form-group">
+					<label class="control-label">Email</label> <input type="email"
+						name="email" ng-required="true" placeholder="example@email.com"
+						class="form-control" ng-model="userdetails.email" /> 
+					
+				</div>
+			</div>
+			<div class="col-lg-6">
+
+				<div class="form-group">
+					<label>Role </label> <select class="form-control"
+						ng-model="userdetails._ref.role" ng-required="true" name="role"
+						ng-options="role.name for role in roles">
+						<option value="" selected>--Select Role--</option>
+
+					</select> <span style="color: red"
+						ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && userForm.role.$dirty && userForm.role.$invalid)">
+
+						<span ng-show="userForm.role.$error.required">User Role is
+							required.</span>
+					</span>
+
+				</div>
+
+
+				<div class="form-group">
+
+					
+
+						
+
+
+
+
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Account Status</label>
+					 <toggle-switch
+              ng-model="userdetails.isActive"
+              on-label="Active"
+              off-label="NotActive">
+            </toggle-switch>
+					<!-- <div class="checkbox">
+						<label> <input type="checkbox" value="false"
+							ng-model="userdetails.isActive">{{ userdetails.isActive ?
+							'User Is Active':'User Is Not Active' }}
+						</label>
+					</div> -->
+				</div>
+				
+				
+				
+				
+				<div class="form-group">
+					<label class="control-label">Mob No.</label> <input type="text"
+						placeholder='Mobile Number' class="form-control"
+						ng-model="userdetails.mobileNo">
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<button type="submit" class="btn btn-primary btn-sm" ng-click="saveUser(userFormDetail,userdetails)">
+					Save
+
+				</button>
+				<input type="button" class="btn btn-danger btn-sm"
+					ng-click="reset();clearInput('ddlHeadStation');" value="Reset" />
+					
+			</div>
+		</ng-form>
+	</div>
+      
+      
+      
+      
+      
+      
+      </div>
+    </div>
+   
+  </div>
+</div>
+
+
+	
+</div>

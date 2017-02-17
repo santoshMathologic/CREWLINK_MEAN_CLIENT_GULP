@@ -103,6 +103,56 @@ var app = angular.module("crewMeanApp", [
                             });
                     }
                 }
+            }).state('home.dashboard.register',
+            {
+                templateUrl: 'ng/directives/dashboard/register/register.directive.html',
+                url: '/register',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/dashboard/register/register.js'
+
+                                ]
+                            });
+                    }
+                }
+            })
+            .state('home.dashboard.companyDetails',
+            {
+                templateUrl: 'ng/directives/dashboard/companyDetails/create/companyDetails.directive.html',
+                url: '/createCompany',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/dashboard/companyDetails/create/companyDetails.js'
+
+                                ]
+                            });
+                    }
+                }
+            })
+            .state('home.dashboard.companyDetailsList',
+            {
+                templateUrl: 'ng/directives/dashboard/companyDetails/list/listcompanyDetails.directive.html',
+                url: '/listCompany',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/dashboard/companyDetails/list/listcompanyDetails.js'
+
+                                ]
+                            });
+                    }
+                }
             }).state('home.login',
             {
                 templateUrl: 'ng/directives/login/login.directive.html',
