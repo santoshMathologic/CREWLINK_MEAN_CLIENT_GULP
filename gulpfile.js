@@ -85,13 +85,22 @@ gulp.task('watch', ['browserSync', 'styles'], function() {
         // Reloads the browser whenever HTML or JS files change
     gulp.watch(input + "css/**/*.css", ['styles']);
     gulp.watch(input + "scss/**/*.scss", ['styles']);
-    gulp.watch(input + "less/**/*.less", ['styles']);
+    gulp.watch(input + "less/**/*.less", ['less']);
     gulp.watch(input + "**/*.html", ['useref']);
     gulp.watch(input + "js/**/*.js", ['lint']);
     
     gulp.watch(input + '**/*', browserSync.reload);
     //gulp.watch(input + 'js/**/*.js', browserSync.reload);
 });
+
+
+
+gulp.task('less', function() {
+    return gulp.src([input + 'less/**/*.less'])
+        .pipe(less())
+        .pipe(concat('main.min.css'))
+        .pipe(gulp.dest(output + 'stylesheets'));
+});  
 
 
 gulp.task('browserSync', function() {
@@ -104,7 +113,7 @@ gulp.task('browserSync', function() {
 
 gulp.task('default',function(callback){
 
-    runSequences(['styles','browserSync', 'watch','useref','jshint'],callback);
+    runSequences(['styles','browserSync', 'watch','useref','jshint','less'],callback);
     console.log("at default");
 
 });
