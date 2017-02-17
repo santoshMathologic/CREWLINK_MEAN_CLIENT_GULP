@@ -1,0 +1,20 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+
+}
+
+#intro{
+    font-family: 'Times New Roman', Times, serif;
+    color:red;
+}
+
+.subheaderdemoBasicUsage .face {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 48px;
+  margin: 16px; 
+}
