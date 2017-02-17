@@ -92,8 +92,7 @@ gulp.task('watch', ['browserSync', 'styles'], function() {
     gulp.watch(input + "scss/**/*.scss", ['styles']);
     gulp.watch(input + "less/**/*.less", ['styles']);
     gulp.watch(input + "**/*.html", ['useref']);
-    gulp.watch(input + "js/**/*.js", ['javascriptLib']);
-    
+    gulp.watch(input + "js/**/*.js", ['javascriptLib']);    
     gulp.watch(input + '**/*', browserSync.reload);
     //gulp.watch(input + 'js/**/*.js', browserSync.reload);
 });
