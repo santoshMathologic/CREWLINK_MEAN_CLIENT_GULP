@@ -6,6 +6,8 @@ angular.module('crewMeanApp')
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/dashboard.tmpl.html',
             controller: function($scope, $state) {
+
+               // $state.go("home.login");
                 
             }
 
