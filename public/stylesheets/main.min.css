@@ -9,3 +9,9 @@ ul {
 li {
   color: #1A237E;
 }
+#divheader {
+  font-family: "Times new roman";
+  color: #1A237E;
+  background: #FF0000;
+  font-size: 50px;
+}

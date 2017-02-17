@@ -90,7 +90,7 @@ gulp.task('watch', ['browserSync', 'styles'], function() {
         // Reloads the browser whenever HTML or JS files change
     gulp.watch(input + "css/**/*.css", ['styles']);
     gulp.watch(input + "scss/**/*.scss", ['styles']);
-    gulp.watch(input + "less/**/*.less", ['styles']);
+    gulp.watch(input + "less/**/*.less", ['less']);
     gulp.watch(input + "**/*.html", ['useref']);
     gulp.watch(input + "js/**/*.js", ['javascriptLib']);    
     gulp.watch(input + '**/*', browserSync.reload);
