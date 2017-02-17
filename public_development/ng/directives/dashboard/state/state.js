@@ -1,9 +1,9 @@
 ' use strict';
 
 angular.module('crewMeanApp')
-    .directive('stats',function() {
+    .directive('state',function() {
     	return {
-  		templateUrl:"ng/directives/dashboard/stats/stats.tmpl.html",
+  		templateUrl:"ng/directives/dashboard/state/state.tmpl.html",
   		restrict:'E',
   		replace:true,
   		scope: {

@@ -2,14 +2,14 @@
 ' use strict';
 
 var api = {
-     protocol: 'http',
+    protocol: 'http',
     server: 'localhost',
     port: 4000,
     baseUrl: '/api/v1',
     crewTypeUrl: '/crewTypes',
 };
 
-var apiUrl = api.protocol + "://" + api.server + ":"+ api.port + api.baseUrl;
+var apiUrl = api.protocol + "://" + api.server + ":" + api.port + api.baseUrl;
 var crewTypeUri = apiUrl + api.crewTypeUrl;
 
 var initInjector = angular.injector(['ng']);
@@ -17,7 +17,22 @@ var $http = initInjector.get('$http');
 
 var app = angular.module("crewMeanApp", [
     'oc.lazyLoad',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap',
+    'angular-loading-bar',
+    'ngSanitize',
+    'smart-table',
+    'toaster',
+    'ngAnimate',
+    'ngCookies',
+    'base64',
+    'angucomplete-alt',
+    'AxelSoft',
+    'flow',
+    'ngRoute',
+    'toggle-switch',
+    'ngProgress',
+    'uiSwitch'
 ]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
 
@@ -34,7 +49,38 @@ var app = angular.module("crewMeanApp", [
                                 files: [
                                     'ng/directives/home/home.js'
                                 ]
-                            });
+                            }), $ocLazyLoad.load(
+                                {
+                                    name: 'toggle-switch',
+                                    files: ["bower_components/angular-toggle-switch/angular-toggle-switch.min.js",
+                                        "bower_components/angular-toggle-switch/angular-toggle-switch.css"
+                                    ]
+                                }),
+                            $ocLazyLoad.load(
+                                {
+                                    name: 'ngAnimate',
+                                    files: ['bower_components/angular-animate/angular-animate.js']
+                                }),
+                            $ocLazyLoad.load(
+                                {
+                                    name: 'ngCookies',
+                                    files: ['bower_components/angular-cookies/angular-cookies.js']
+                                }),
+                            $ocLazyLoad.load(
+                                {
+                                    name: 'ngResource',
+                                    files: ['bower_components/angular-resource/angular-resource.js']
+                                }),
+                            $ocLazyLoad.load(
+                                {
+                                    name: 'ngSanitize',
+                                    files: ['bower_components/angular-sanitize/angular-sanitize.js']
+                                }),
+                            $ocLazyLoad.load(
+                                {
+                                    name: 'ngTouch',
+                                    files: ['bower_components/angular-touch/angular-touch.js']
+                                });
                     }
                 }
             }).state('home.dashboard',
@@ -50,6 +96,7 @@ var app = angular.module("crewMeanApp", [
                                     'ng/directives/dashboard/dashboard.js',
                                     'ng/directives/dashboard/header/header.js',
                                     'ng/directives/dashboard/sidebar/sidebar.js',
+                                    'ng/directives/dashboard/state/state.js'
 
                                 ]
                             });
@@ -157,7 +204,7 @@ var app = angular.module("crewMeanApp", [
             {
                 templateUrl: 'ng/directives/login/login.directive.html',
                 url: '/login',
-                controller:'LoginCtrl',
+                controller: 'LoginCtrl',
                 resolve: {
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
@@ -165,13 +212,46 @@ var app = angular.module("crewMeanApp", [
                                 name: 'crewMeanApp',
                                 files: [
                                     'ng/directives/login/login.js',
-                                     'ng/controller/login.js'
+                                    'ng/controller/login.js'
 
                                 ]
                             });
                     }
                 }
-            });
+            }).state('home.dashboard.upload',{
+        templateUrl:'ng/directives/dashboard/upload/upload.directive.html',
+        //controller: 'uploadCtrl',
+        url:'/upload',
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name:'crewMeanApp',
+                files:[
+                       "ng/directives/dashboard/upload/upload.js",
+                       //"ng/controllers/upload.js"
+                       
+                ]
+              });
+            }
+          }
+    }).state('home.dashboard.commondashboard',{
+        templateUrl:'ng/directives/dashboard/commondashboard/commondashboard.directive.html',
+        url:'/commondsboard',
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name:'crewMeanApp',
+                files:[
+                       "ng/directives/dashboard/commondashboard/commondashboard.js",
+                       'ng/directives/dashboard/state/state.js'
+
+                       
+                ]
+              });
+            }
+          }
+    	});
+    
 
 
     }]);
