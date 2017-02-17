@@ -1,15 +1,12 @@
 
 ' use strict';
 
-var app  = angular.module("crewMeanApp",[
-
-]);
-
-app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
+var app = angular.module("crewMeanApp",[
+    'oc.lazyLoad',
+    'ui.router'
+]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
     function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
  
-            $httpProvider.defaults.withCredentials = true;
-
         $urlRouterProvider.otherwise('/home/dashboard');
         $stateProvider
             .state('home', {
@@ -28,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$htt
                 }
             }).state('home.dashboard',
             {
-                templateUrl: 'ng/directives/dashboard/dashboard.directive.html',
+                templateUrl:'ng/directives/dashboard/dashboard.directive.html',
                 url: '/dashboard',
                 resolve: {
                     loadMyDirectives: function($ocLazyLoad) {
@@ -36,7 +33,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$htt
                             {
                                 name: 'crewMeanApp',
                                 files: [
-                                    'ng/directives/dashboard/dashboard.js',
+                                    'ng/directives/dashboard/dashboard.js'
                                     
 
                                 ]
