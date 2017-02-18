@@ -51,12 +51,13 @@ var ServerTableFetch  =  function(url,httpService,callBackBefore,callBackAfter,c
 			}
 		}
 		
-		var call = this.urlValue + searchParams;
+	//	var call = this.urlValue + searchParams;
+			var call = this.urlValue;
 		
 		
 		this.httpService.get(call)
 		.then(function successCallBack(response){
-			  	var resultObj = response.data.content;
+			  	var resultObj = response.data.results;
 			     tableState.pagination.numberOfPages = response.data.totalPages;
 			     resultObj.tableState = tableState;
 			  

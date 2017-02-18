@@ -17,11 +17,17 @@ angular.module('crewMeanApp')
 		//// Server Table Fetch 
 
 		$scope.userPlanList = [];
-		var planName = "";
-		var limit = 10;
-		var page = 0;
+		$scope.query = {
+			sort: 'planName',
+			limit: 10,
+			page: 0,
+
+		};
+
+
 		$scope.serverFetch = new ServerTableFetch(
-			"api/v1/userPlan/getUserPlan?planName=" + planName + "&limit=" + limit + "&page=" + page,
+			//"http://localhost:4000/api/v1/userPlan/getUserPlan?planName=" + planName + "&limit=" + limit + "&page=" + page,
+			userPlansUri + "?limit=" + $scope.query.limit + "&page=" + $scope.query.page + "&sortBy=" + $scope.query.page,
 			$http, function callBackBefore() {// Before processing
 
 				$scope.isLoading = true;
@@ -36,15 +42,12 @@ angular.module('crewMeanApp')
 
 
 
-		$scope.query = {
-			sort: 'planName',
-			limit: 10,
-			page: 0,
 
-		};
-		$scope.$watch('query', function (newValue, oldValue) {
+
+		$scope.$watch('serverFetch', function (newValue, oldValue) {
 			if (newValue !== oldValue) {
-				//$scope.getUserPlan();
+				
+
 			}
 		}, true);
 

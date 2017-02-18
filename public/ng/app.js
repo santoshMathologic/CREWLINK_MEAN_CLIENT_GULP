@@ -7,10 +7,12 @@ var api = {
     port: 4000,
     baseUrl: '/api/v1',
     crewTypeUrl: '/crewTypes',
+    userPlans: '/userPlans',
 };
 
 var apiUrl = api.protocol + "://" + api.server + ":" + api.port + api.baseUrl;
 var crewTypeUri = apiUrl + api.crewTypeUrl;
+var userPlansUri = apiUrl + api.userPlans;
 
 var initInjector = angular.injector(['ng']);
 var $http = initInjector.get('$http');
