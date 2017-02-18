@@ -23,6 +23,7 @@ var gulp            = require("gulp"),
     jshint          = require('gulp-jshint'),
     less            = require('gulp-less'),
     useref          = require('gulp-useref');
+    var Server = require('karma').Server;
 var dir = './'+inputPath;
 
 if (!fs.existsSync(dir)){
@@ -129,3 +130,4 @@ gulp.task('default',function(callback){
     console.log("at default");
 
 });
+

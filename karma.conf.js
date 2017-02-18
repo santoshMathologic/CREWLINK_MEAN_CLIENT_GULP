@@ -18,14 +18,11 @@ module.exports = function(config) {
 
       
       
-      "../node_modules/bower_components/jquery/dist/jquery.min.js",
+      
 			"../node_modules/bower_components/angular/angular.min.js",
 			"../node_modules/bower_components/angular-resource/angular-resource.min.js",
 			"../node_modules/bower_components/angular-cookies/angular-cookies.min.js",
 			"../node_modules/bower_components/angular-ui-router/release/angular-ui-router.min.js",
-			"../node_modules/bower_components/bootstrap/dist/js/bootstrap.min.js",
-			"../node_modules/bower_components/angular-bootstrap/ui-bootstrap.min.js",
-			"../node_modules/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
 			"../node_modules/bower_components/angucomplete-alt/angucomplete-alt.js",
 			"../node_modules/bower_components/custom-select/js/customSelect.js",
 			"../node_modules/bower_components/angular-confirm/angular-confirm.js",
@@ -54,8 +51,11 @@ module.exports = function(config) {
 			"../node_modules/bower_components/moment/moment.js",
 
 
-      '../public_development/ng/controller/*.js',
-      '../public_development/ng/app.js',
+      ///'../public_development/ng/controller/searchFilter.js',
+      //'../public_development/ng/app.js',
+      'ng/controller/**/*.js',
+      //'../public_development/test/searchFilterSpec.js',
+      'test/**/*.js'
       
     ],
 
@@ -98,6 +98,14 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS', 'Chrome'],
    // browsers: ['PhantomJS'],
+
+   //plugins: [
+            //'karma-junit-reporter',
+            //'karma-chrome-launcher',
+            //'karma-firefox-launcher',
+           // 'karma-jasmine',
+            //'karma-phantomjs-launcher'
+     //   ],
 
 
     // Continuous Integration mode
