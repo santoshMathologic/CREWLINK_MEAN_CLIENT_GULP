@@ -96,7 +96,8 @@ var app = angular.module("crewMeanApp", [
                                     'ng/directives/dashboard/dashboard.js',
                                     'ng/directives/dashboard/header/header.js',
                                     'ng/directives/dashboard/sidebar/sidebar.js',
-                                    'ng/directives/dashboard/state/state.js'
+                                    'ng/directives/dashboard/state/state.js',
+                                    'ng/util/serverTableFetch.js'
 
                                 ]
                             });
@@ -122,13 +123,16 @@ var app = angular.module("crewMeanApp", [
             {
                 templateUrl: 'ng/directives/dashboard/User/user.directive.html',
                 url: '/user',
+                controller:"userCtrl",
+
                 resolve: {
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
                             {
                                 name: 'crewMeanApp',
                                 files: [
-                                    'ng/directives/dashboard/User/user.js'
+                                    'ng/directives/dashboard/User/user.js',
+                                    'ng/controller/user.js'
 
                                 ]
                             });
@@ -138,13 +142,15 @@ var app = angular.module("crewMeanApp", [
             {
                 templateUrl: 'ng/directives/dashboard/UserPlan/userPlan.directive.html',
                 url: '/userPlan',
+                 controller:"userplanCtrl",
                 resolve: {
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
                             {
                                 name: 'crewMeanApp',
                                 files: [
-                                    'ng/directives/dashboard/UserPlan/userPlan.js'
+                                    'ng/directives/dashboard/UserPlan/userPlan.js',
+                                    'ng/controller/userPlan.js'
 
                                 ]
                             });

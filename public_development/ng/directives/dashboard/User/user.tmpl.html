@@ -33,52 +33,12 @@
 							<th>MobileNo</th>
 							<th>Password</th>
 							<th>IsActive</th>
-							<th>Extension</th>
-							<th>EmployeeNo</th>
-							<th>Activation Key</th>
-							<th>Role</th>
+							<th>Address</th>
+							<th>PostalCode</th>
+							<th>Company</th>
+							<th>Designation</th>
 						</tr>
-						<tr>
-						<th>&nbsp;</th>
-						<th><input type="text"  class="form-control input-sm"
-									placeholder="First name" /></th>
-
-								<th><input type="text" class="form-control input-sm"
-									placeholder="User Name"  /></th>
-
-								<th><input type="text"  class="form-control input-sm"
-									placeholder="Last Name"  /></th>
-
-								<th><input type="text"  class="form-control input-sm"
-									placeholder="Mobile"  /></th>
-									
-								<th><input type="text"  class="form-control input-sm"
-									placeholder="password"  /></th>
-
-								<th><input type="text"  class="form-control input-sm"
-									placeholder="password"  /></th>
-
-							
-								<th><select class="form-control input-sm">
-										<option value="" selected>All</option>
-										<option value="true">Only Active</option>
-										<option value="false">Ony InActive</option>
-								</select></th>
-									<th><input type="text" class="form-control input-sm"
-									placeholder="Extension"  /></th>
-									<th><input type="text"  class="form-control input-sm"
-									placeholder="EmployeeNo"  /></th>
-									
-									
-									<th></th>
-								<th><select  class="form-control input-sm">
-										<option value="" selected>All</option>
-										<option value="true">Only Active</option>
-										<option value="false">Ony InActive</option>
-								</select></th>
-								<th></th>
 						
-						</tr>
 					</thead>
 					
 					
@@ -88,41 +48,44 @@
 					<tbody>
 						<tr ng-repeat="(key, prop) in usersList">
 							<td>{{$index+1}}</td>
-							<td>{{prop.username}}</td>
 							<td>{{prop.firstName}}</td>
+							<td>{{prop.userName}}</td>
+						
 							<td>{{prop.lastName}}</td>
 							<td>{{prop.email}}</td>
 							<td>{{prop.mobileNo}}</td>
 							<td>{{prop.password}}</td>
 							<td>
-							
-							
-							
 							<div ng-class="{'userActive': prop.isActive,'userInactive': !prop.isActive} ">
-								
 							</div>
 							
 							 </td>
-							<td>{{prop.extension}}</td>
-							<td>{{prop.employeeNo}}</td>
-							<td>{{prop.activationKey}}</td>
-							<td>{{prop.role.name}}</td>
+							<td>{{prop.address}}</td>
+							<td>{{prop.postalCode}}</td>
+							<td>{{prop.company}}</td>
+							<td>{{prop.title}}</td>
 							
 							
 							
 							
-							<td><button class="btn btn-xs btn-warning fa fa-edit"
-									ng-click="selectUser(user)" title="Edit"> </button> <button
+							<td>
+								
+								<button class="btn btn-xs btn-warning fa fa-edit"
+									ng-click="selectUser(prop)" title="Edit"> </button>
+									
+									
+									 <button
 									class="btn btn-xs btn-danger fa fa-remove"
-									ng-click="removeUser(user)"
-									confirm="Are you sure to delete user : {{user.username}} ?"
+									ng-click="removeUser(prop)"
+									confirm="Are you sure to delete user : {{prop.username}} ?"
 									confirm-settings="{size: 'md'}"
 									confirm-header-class="confirm-header-danger "
 									confirm-footer-class="confirm-footer-default"
 									confirm-ok-button-class = "btn-danger"
 									confirm-cancel-button-class = "btn-default"
 									confirm-title="Confirm Deletion!!" confirm-ok="Yes"
-									confirm-cancel="No" title="remove"> </button></td>
+									confirm-cancel="No" title="remove"> </button>
+									</td>
 						</tr>
 					</tbody>
 				</table>
