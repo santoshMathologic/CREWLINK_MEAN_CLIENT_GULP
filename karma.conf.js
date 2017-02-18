@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Sat Feb 18 2017 14:51:09 GMT+0530 (India Standard Time)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -16,47 +16,47 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
 
-      
-      
-      
-			"../node_modules/bower_components/angular/angular.min.js",
-			"../node_modules/bower_components/angular-resource/angular-resource.min.js",
-			"../node_modules/bower_components/angular-cookies/angular-cookies.min.js",
-			"../node_modules/bower_components/angular-ui-router/release/angular-ui-router.min.js",
-			"../node_modules/bower_components/angucomplete-alt/angucomplete-alt.js",
-			"../node_modules/bower_components/custom-select/js/customSelect.js",
-			"../node_modules/bower_components/angular-confirm/angular-confirm.js",
-			"../node_modules/bower_components/angularjs-toaster/toaster.js",
-			"../node_modules/bower_components/angular-base64/angular-base64.min.js",
-			"../node_modules/bower_components/angular-spring-data-rest/dist/angular-spring-data-rest.min.js",
-			"../node_modules/bower_components/ng-flow/dist/ng-flow-standalone.min.js",
-			"../node_modules/bower_components/angular-animate/angular-animate.min.js",
-			"../node_modules/bower_components/angular-sanitize/angular-sanitize.min.js",
-			"../node_modules/bower_components/json3/lib/json3.min.js",
-			"../node_modules/bower_components/oclazyload/dist/ocLazyLoad.min.js",
-			"../node_modules/bower_components/angular-loading-bar/build/loading-bar.min.js",
-			"../node_modules/bower_components/metisMenu/dist/metisMenu.min.js",
-			"../node_modules/bower_components/Chart.js/Chart.min.js",
-			"../node_modules/bower_components/angular-smart-table/dist/smart-table.js",
-			"../node_modules/bower_components/angular-ngcsv/ng-csv.min.js",
-			"../node_modules/bower_components/angular-route/angular-route.js",
-			"../node_modules/bower_components/angular-toggle-switch/angular-toggle-switch.min.js",
-			"../node_modules/bower_components/ngProgress/build/ngProgress.js",
-			"../node_modules/bower_components/lodash/dist/lodash.js",
-			"../node_modules/bower_components/underscore/underscore-min.js",
-			"../node_modules/bower_components/dist/plugins/chart/d3.js",
-			"../node_modules/bower_components/dist/plugins/chart/c3.js",
-			"../node_modules/bower_components/angular-ui-switch/angular-ui-switch.js",
-			"../node_modules/bower_components/angular-mocks/angular-mocks.js",
-			"../node_modules/bower_components/moment/moment.js",
+      "./node_modules/bower_components/jquery/dist/jquery.js",
+      "./node_modules/bower_components/angular/angular.min.js",
+      "./node_modules/bower_components/angular-resource/angular-resource.min.js",
+      "./node_modules/bower_components/angular-cookies/angular-cookies.min.js",
+      "./node_modules/bower_components/angular-ui-router/release/angular-ui-router.min.js",
+      "./node_modules/bower_components/angucomplete-alt/angucomplete-alt.js",
+      "./node_modules/bower_components/custom-select/js/customSelect.js",
+      "./node_modules/bower_components/angular-confirm/angular-confirm.js",
+      "./node_modules/bower_components/angularjs-toaster/toaster.js",
+      "./node_modules/bower_components/angular-base64/angular-base64.min.js",
+      "./node_modules/bower_components/angular-spring-data-rest/dist/angular-spring-data-rest.min.js",
+      "./node_modules/bower_components/ng-flow/dist/ng-flow-standalone.min.js",
+      "./node_modules/bower_components/angular-animate/angular-animate.min.js",
+      "./node_modules/bower_components/angular-sanitize/angular-sanitize.min.js",
+      "./node_modules/bower_components/json3/lib/json3.min.js",
+      "./node_modules/bower_components/oclazyload/dist/ocLazyLoad.min.js",
+      "./node_modules/bower_components/angular-loading-bar/build/loading-bar.min.js",
+      "./node_modules/bower_components/metisMenu/dist/metisMenu.min.js",
+      "./node_modules/bower_components/Chart.js/Chart.min.js",
+      "./node_modules/bower_components/angular-smart-table/dist/smart-table.js",
+      "./node_modules/bower_components/angular-ngcsv/ng-csv.min.js",
+      "./node_modules/bower_components/angular-route/angular-route.js",
+      "./node_modules/bower_components/angular-toggle-switch/angular-toggle-switch.min.js",
+      "./node_modules/bower_components/ngProgress/build/ngProgress.js",
+      "./node_modules/bower_components/lodash/dist/lodash.js",
+      "./node_modules/bower_components/underscore/underscore-min.js",
+      "./node_modules/bower_components/dist/plugins/chart/d3.js",
+      "./node_modules/bower_components/dist/plugins/chart/c3.js",
+      "./node_modules/bower_components/angular-ui-switch/angular-ui-switch.js",
+      "./node_modules/bower_components/angular-mocks/angular-mocks.js",
+      "./node_modules/bower_components/moment/moment.js",
 
 
-      ///'../public_development/ng/controller/searchFilter.js',
-      //'../public_development/ng/app.js',
-      'ng/controller/**/*.js',
-      //'../public_development/test/searchFilterSpec.js',
-      'test/**/*.js'
+      './public/ng/app.js',
       
+      //'./public/ng/testSpec/LoginController.spec.js',
+      //'./public/ng/controllers/login.js',
+      './public/ng/testSpec/searchFilter.spec.js',
+      './public/ng/controllers/searchFilter.js',
+
+
     ],
 
 
@@ -97,15 +97,15 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS', 'Chrome'],
-   // browsers: ['PhantomJS'],
+    // browsers: ['PhantomJS'],
 
-   //plugins: [
-            //'karma-junit-reporter',
-            //'karma-chrome-launcher',
-            //'karma-firefox-launcher',
-           // 'karma-jasmine',
-            //'karma-phantomjs-launcher'
-     //   ],
+    //plugins: [
+    //'karma-junit-reporter',
+    //'karma-chrome-launcher',
+    //'karma-firefox-launcher',
+    // 'karma-jasmine',
+    //'karma-phantomjs-launcher'
+    //   ],
 
 
     // Continuous Integration mode
