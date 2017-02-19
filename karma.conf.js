@@ -16,8 +16,10 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
 
+      
+      "./node_modules/bower_components/angular/angular.js",
+      "./node_modules/bower_components/oclazyload/dist/ocLazyLoad.js",
       "./node_modules/bower_components/jquery/dist/jquery.js",
-      "./node_modules/bower_components/angular/angular.min.js",
       "./node_modules/bower_components/angular-resource/angular-resource.min.js",
       "./node_modules/bower_components/angular-cookies/angular-cookies.min.js",
       "./node_modules/bower_components/angular-ui-router/release/angular-ui-router.min.js",
@@ -31,7 +33,7 @@ module.exports = function (config) {
       "./node_modules/bower_components/angular-animate/angular-animate.min.js",
       "./node_modules/bower_components/angular-sanitize/angular-sanitize.min.js",
       "./node_modules/bower_components/json3/lib/json3.min.js",
-      "./node_modules/bower_components/oclazyload/dist/ocLazyLoad.min.js",
+      
       "./node_modules/bower_components/angular-loading-bar/build/loading-bar.min.js",
       "./node_modules/bower_components/metisMenu/dist/metisMenu.min.js",
       "./node_modules/bower_components/Chart.js/Chart.min.js",
@@ -51,11 +53,13 @@ module.exports = function (config) {
 
       './public/ng/app.js',
       
-      //'./public/ng/testSpec/LoginController.spec.js',
-      //'./public/ng/controllers/login.js',
-      './public/ng/testSpec/searchFilter.spec.js',
-      './public/ng/controllers/searchFilter.js',
+      //'./public/ng/testSpec/**/*.js',
+     // './public/ng/controllers/**/*.js',
+      //'./public/ng/testSpec/searchFilter.spec.js',
+      //'./public/ng/controllers/searchFilter.js',
 
+      './public/testSpec/loginController.spec.js',
+      './public/ng/controllers/**/*.js',
 
     ],
 
@@ -106,6 +110,7 @@ module.exports = function (config) {
     // 'karma-jasmine',
     //'karma-phantomjs-launcher'
     //   ],
+
 
 
     // Continuous Integration mode
