@@ -201,3 +201,9 @@ a.toggle_menu:active{
 .userPlans a:focus,.userPlans a:hover {
     text-decoration: none;
 }
+
+.collapseable {
+	
+    border-left: 4px solid silver;
+    background-color:#000000;
+}

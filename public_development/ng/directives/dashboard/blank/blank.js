@@ -5,8 +5,13 @@ angular.module('crewMeanApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/blank/blank.tmpl.html',
-            controller: function ($scope, $state, $http) {
+            controller: function ($scope, $state, $http,UserService) {
 
+  console.log(""+UserService.getUserPlan());
+  console.log(""+UserService.getCurrentUser());
+  console.log(""+UserService.getUser());
+
+  
                 $scope.crewTypeList = [];
                 $scope.query = {
                     limit:10,

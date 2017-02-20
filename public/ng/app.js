@@ -99,7 +99,9 @@ var app = angular.module("crewMeanApp", [
                                     'ng/directives/dashboard/header/header.js',
                                     'ng/directives/dashboard/sidebar/sidebar.js',
                                     'ng/directives/dashboard/state/state.js',
-                                    'ng/util/serverTableFetch.js'
+                                    'ng/util/serverTableFetch.js',
+                                    'ng/util/sideBarDirective.js',
+                                    'ng/util/userService.js'
 
                                 ]
                             });
@@ -225,7 +227,7 @@ var app = angular.module("crewMeanApp", [
               });
             }
           }
-    	}) .state('home.dashboard.company',
+    	}) .state('home.dashboard.createCompany',
             {
                 templateUrl: 'ng/directives/dashboard/company/create/company.directive.html',
                 url: '/createCompany',
@@ -236,6 +238,22 @@ var app = angular.module("crewMeanApp", [
                                 name: 'crewMeanApp',
                                 files: [
                                     'ng/directives/dashboard/company/create/company.js'
+
+                                ]
+                            });
+                    }
+                }
+            }) .state('home.dashboard.listcompany',
+            {
+                templateUrl: 'ng/directives/dashboard/company/list/listcompany.directive.html',
+                url: '/listcompany',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/dashboard/company/list/listcompany.js'
 
                                 ]
                             });
