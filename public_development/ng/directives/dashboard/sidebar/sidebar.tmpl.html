@@ -1,70 +1,65 @@
-
-    <button type="button" class="glyphicon glyphicon glyphicon-chevron-left btn btn-primary animate-hide" tooltip="{{tooltipMessage}}" tooltip-placement="right" id="righttogglebutton"
-		tooltip-popup-delay="300" id="righttogglebutton" ng-click="toggleState()" style="margin-top:-45px;border-radius:0px">
+<button type="button" class="glyphicon glyphicon glyphicon-chevron-left btn btn-primary" ng-click="hideSidebar()" style="margin-top:-45px;border-radius:0px">
     
     </button>
 
-    <div class="sidebar" id="rightSideBar" sidebar-directive="isState">
+<div class="sidebar" id="rightSideBar">
+    <ul id="customNavigation">
+        <li><a ui-sref="home.dashboard.commondashboard" class="selected"><i class="fa fa-tachometer fa-fw" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a ui-sref="home.dashboard.blank"><i class="fa fa-adjust fa-fw" aria-hidden="true"></i> Blank</a></li>
+        <li><a ui-sref="home.dashboard.upload"><i class="fa fa-upload fa-fw" aria-hidden="true"></i> Upload</a></li>
+        <li><a ui-sref="home.dashboard.user"><i class="fa fa-user fa-fw" aria-hidden="true"></i> User</a></li>
 
 
+        <li>
+            <a href="#collapse-comments" data-toggle="collapse" aria-controls="collapse-comments">
+                <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
+                <span class="hidden-sm hidden-xs"> UserPlan</span>
+            </a>
+            <ul class="collapse collapseable" id="collapse-comments">
+                <li>
+                    <a ui-sref="home.dashboard.userPlan" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
+                        <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> Create Plan
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
+                        <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> List All Plan
 
-        <ul id="customNavigation">
-            <li><a ui-sref="home.dashboard.commondashboard" class="selected"><i class="fa fa-tachometer fa-fw" aria-hidden="true"></i> Dashboard</a></li>
-            <li><a ui-sref="home.dashboard.blank"><i class="fa fa-adjust fa-fw" aria-hidden="true"></i> Blank</a></li>
-            <li><a ui-sref="home.dashboard.upload"><i class="fa fa-upload fa-fw" aria-hidden="true"></i> Upload</a></li>
-            <li><a ui-sref="home.dashboard.user"><i class="fa fa-user fa-fw" aria-hidden="true"></i> User</a></li>
-
-
-            <li>
-                <a href="#collapse-comments" data-toggle="collapse" aria-controls="collapse-comments">
-                    <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
-                    <span class="hidden-sm hidden-xs"> UserPlan</span>
-                </a>
-                <ul class="collapse collapseable" id="collapse-comments">
-                    <li>
-                        <a ui-sref="home.dashboard.userPlan" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
-                            <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> Create Plan
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
-                            <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> List All Plan
-
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
 
-            <li>
-                <a href="#collapse-users" data-toggle="collapse" aria-controls="collapse-users">
-                    <i class="fa fa-exchange fa-fw" aria-hidden="true"></i>
-                    <span class="hidden-sm hidden-xs"> User</span>
-                </a>
-                <ul class="collapse collapseable" id="collapse-users">
-                    <li>
-                        <a ui-sref="home.dashboard.createUser" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
-                            <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> Create User
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
-                            <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> List Users
+        <li>
+            <a href="#collapse-users" data-toggle="collapse" aria-controls="collapse-users">
+                <i class="fa fa-exchange fa-fw" aria-hidden="true"></i>
+                <span class="hidden-sm hidden-xs"> User</span>
+            </a>
+            <ul class="collapse collapseable" id="collapse-users">
+                <li>
+                    <a ui-sref="home.dashboard.createUser" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
+                        <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> Create User
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="margin-left: 30px;padding: 9px 0px 0px 9px;">
+                        <i class="fa fa-bell-o fa-fw" aria-hidden="true"></i> List Users
 
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
-            <li><a ui-sref="home.dashboard.register"><i class="fa fa-rebel fa-fw" aria-hidden="true"></i> Register</a></li>
+        <li><a ui-sref="home.dashboard.register"><i class="fa fa-rebel fa-fw" aria-hidden="true"></i> Register</a></li>
 
-            <li><a ui-sref="home.dashboard.createCompany"><i class="fa fa-building fa-fw" aria-hidden="true"></i> Create Company</a></li>
-            <li><a ui-sref="home.dashboard.listcompany"><i class="fa fa-arrows fa-fw" aria-hidden="true"></i> List AllCompany</a></li>
+        <li><a ui-sref="home.dashboard.createCompany"><i class="fa fa-building fa-fw" aria-hidden="true"></i> Create Company</a></li>
+        <li><a ui-sref="home.dashboard.listcompany"><i class="fa fa-arrows fa-fw" aria-hidden="true"></i> List AllCompany</a></li>
 
-            <li><a href="#"><i class="fa fa-bullhorn fa-fw" aria-hidden="true"></i> Create Walking </a></li>
-            <li><a href="#"><i class="fa fa-th fa-fw" aria-hidden="true"></i> List All Walking</a></li>
-            <li><a href="#"><i class="fa fa-adjust fa-fw" aria-hidden="true"></i> List All Comapny</a></li>
-            <li><a href="#"><i class="fa fa-adjust fa-fw" aria-hidden="true"></i> List All Comapny</a></li>
+        <li><a href="#"><i class="fa fa-bullhorn fa-fw" aria-hidden="true"></i> Create Walking </a></li>
+        <li><a href="#"><i class="fa fa-th fa-fw" aria-hidden="true"></i> List All Walking</a></li>
+        <li><a href="#"><i class="fa fa-adjust fa-fw" aria-hidden="true"></i> List All Comapny</a></li>
+        <li><a href="#"><i class="fa fa-adjust fa-fw" aria-hidden="true"></i> List All Comapny</a></li>
 
-        </ul>
-    </div>
+    </ul>
+</div>

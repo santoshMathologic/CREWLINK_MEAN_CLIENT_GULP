@@ -1,4 +1,8 @@
 
+
+(function (){
+
+
 ' use strict';
 
 var api = {
@@ -100,8 +104,7 @@ var app = angular.module("crewMeanApp", [
                                     'ng/directives/dashboard/sidebar/sidebar.js',
                                     'ng/directives/dashboard/state/state.js',
                                     'ng/util/serverTableFetch.js',
-                                    'ng/util/sideBarDirective.js',
-                                    'ng/util/userService.js'
+                                    'ng/util/UserService.js'
 
                                 ]
                             });
@@ -264,3 +267,5 @@ var app = angular.module("crewMeanApp", [
 
 
     }]);
+
+})();

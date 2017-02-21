@@ -7,9 +7,9 @@ angular.module('crewMeanApp')
             templateUrl: 'ng/directives/dashboard/blank/blank.tmpl.html',
             controller: function ($scope, $state, $http,UserService) {
 
-  console.log(""+UserService.getUserPlan());
-  console.log(""+UserService.getCurrentUser());
-  console.log(""+UserService.getUser());
+  //console.log(""+UserService.getUserPlan());
+  //console.log(""+UserService.getCurrentUser());
+  //console.log(""+UserService.getUser());
 
   
                 $scope.crewTypeList = [];

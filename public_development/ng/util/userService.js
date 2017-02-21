@@ -1,13 +1,19 @@
 
-(function () {
+(function(){
 
     ' use strict';
     var app = angular.module("crewMeanApp");
     app.provider("UserService", function () {
         var provider = {};
-        provider.$get = function ($http, $q, $timeout) {
+        var config = {};
+        config.sidebarTrigger = true;
+        provider.$get = function($http,$q,$timeout,$cookies) {
             var service = {};
+            service.config = {};
+            service.config.sidebarTrigger = config.sidebarTrigger;
             service.CurrentUserDetails = null;
+            
+
             service.getUserPlan = function () {
                 return "User Plan has been set SuccessFully";
             };
