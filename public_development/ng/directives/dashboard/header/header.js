@@ -5,7 +5,12 @@ angular.module('crewMeanApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/header/header.tmpl.html',
-            controller: function($scope, $state) {
+            controller: function($scope, $state,$location) {
+
+                $scope.logout = function(){
+                    $location.path("/login");
+
+                };
                 
             }
 

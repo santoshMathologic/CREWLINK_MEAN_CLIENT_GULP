@@ -11,6 +11,7 @@ var app = angular.module('crewMeanApp');
                     $scope.UserService = UserService;
                     $scope.hideSidebarVar = false;
 
+                   
                     $scope.$watch(function () {
                         return UserService.config.sidebarTrigger;
                     }, function (newVal) {

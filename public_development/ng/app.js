@@ -42,7 +42,8 @@ var app = angular.module("crewMeanApp", [
 ]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
 
-        $urlRouterProvider.otherwise('/home/dashboard');
+       // $urlRouterProvider.otherwise('/home/dashboard');
+        $urlRouterProvider.otherwise('/login');
         $stateProvider
             .state('home', {
                 templateUrl: 'ng/directives/home/home.directive.html',
@@ -180,7 +181,7 @@ var app = angular.module("crewMeanApp", [
                     }
                 }
             })
-           .state('home.login',
+           .state('login',
             {
                 templateUrl: 'ng/directives/login/login.directive.html',
                 url: '/login',
