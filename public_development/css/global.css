@@ -1,5 +1,4 @@
 
-
 /*@import url("http://fonts.googleapis.com/css?family=Open+Sans"); */
 
 
@@ -201,9 +200,56 @@ a.toggle_menu:active{
 .userPlans a:focus,.userPlans a:hover {
     text-decoration: none;
 }
-
 .collapseable {
 	
     border-left: 4px solid silver;
     background-color:#000000;
 }
+
+.rightArrow {
+    position:relative;
+}    
+.rightArrow:before {
+    content: "\f104";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+ }
+
+ .leftArrow {
+    position:relative;
+}    
+.leftArrow:before {
+     content: "\f107";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+ }
+ 
+.show {
+	opacity: 0;
+	-webkit-transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	
+	transition: opacity .25s ease-in-out;
+}
+
+.show.end {
+  
+-webkit-transition: opacity 2s ease-in-out;
+-moz-transition: opacity 2s ease-in-out;
+transition: opacity 2s ease-in-out;
+}
+
+.sidebar_Toggle_Button{
+	margin-top: 5px;
+    border-radius: 0px;
+    margin-left: -260px;
+}
+
+
+
+
+ 

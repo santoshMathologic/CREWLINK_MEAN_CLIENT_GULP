@@ -1,0 +1,22 @@
+
+input[type=text]{
+	border-radius: 0px; 
+	
+}
+
+input[type=password]{
+	border-radius: 0px; 
+	
+}
+
+.btn-maroon{
+	background-color: maroon;
+	border-color:maroon;
+	color:white!important;
+	border-radius:0px;
+}
+.btn-maroon:hover {
+    background-color: #B22222;
+    color:white;
+    border-radius:0px;
+}
