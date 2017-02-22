@@ -12,8 +12,7 @@ angular.module('crewMeanApp')
             	$scope.string = $state.current.name;
             	$scope.title = $scope.string.replaceAll('.', ' > ');
             	$scope.headertitle = $scope.title.split('>');
-          
-              //UserService.config.sidebarTrigger = false;
+                UserService.config.sidebarTrigger = true;
             }
 
         };

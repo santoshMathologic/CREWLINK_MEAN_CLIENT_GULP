@@ -10,7 +10,9 @@
             controller: function ($scope, $state, $window, $location, UserService, $timeout) {
                 $scope.UserService = UserService;
                 $scope.hideSidebarVar = false;
-                UserService.config.sidebarTrigger = false;
+               // UserService.config.sidebarTrigger = false;
+
+              
 
                 $scope.$watch('UserService.config.sidebarTrigger', function (newVal) {
 
@@ -24,9 +26,10 @@
                 }, true);
 
 
-                $scope.hideSidebar = function () {
-                    $scope.hideSidebarVar = ($scope.hideSidebarVar) ? false : true;
+                $scope.showHideToggle = function () {
+                    $scope.hideSidebarVar = !$scope.hideSidebarVar;
                     UserService.config.sidebarTrigger = $scope.hideSidebarVar;
+                    
 
 
                 };
