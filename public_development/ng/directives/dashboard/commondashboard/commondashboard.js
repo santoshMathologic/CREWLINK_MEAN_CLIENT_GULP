@@ -3,7 +3,7 @@ angular.module('crewMeanApp')
         return {
             restrict: 'E',
             templateUrl:  "ng/directives/dashboard/commondashboard/commondashboard.tmpl.html",
-            controller: function($scope, $state, $window, $location) {
+            controller: function($scope, $state, $window, $location,UserService) {
               
                String.prototype.replaceAll = function(find, replace) {
                      var str = this;
@@ -13,6 +13,7 @@ angular.module('crewMeanApp')
             	$scope.title = $scope.string.replaceAll('.', ' > ');
             	$scope.headertitle = $scope.title.split('>');
           
+              //UserService.config.sidebarTrigger = false;
             }
 
         };

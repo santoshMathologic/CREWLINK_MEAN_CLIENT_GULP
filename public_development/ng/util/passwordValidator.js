@@ -1,5 +1,5 @@
 ' use strict';
-angular.module('walkinApp').directive('passwordMatch', ['$location', '$q', '$timeout', function ($location, $q, $timeout) {
+angular.module('crewMeanApp').directive('passwordMatch', ['$location', '$q', '$timeout', function ($location, $q, $timeout) {
     return {
         restrict: 'A',
         require: "ngModel",

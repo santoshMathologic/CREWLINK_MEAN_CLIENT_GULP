@@ -1,13 +1,13 @@
 'use strict';
 
-var app = angular.module('walkinApp');
+var app = angular.module('crewMeanApp');
 
 app.directive('nxEqualEx', function() {
     return {
         require: 'ngModel',
         link: function (scope, elem, attrs, model) {
             if (!attrs.nxEqualEx) {
-                console.error('nxEqualEx expects a model as an argument!');
+                
                 return;
             }
             scope.$watch(attrs.nxEqualEx, function (value) {

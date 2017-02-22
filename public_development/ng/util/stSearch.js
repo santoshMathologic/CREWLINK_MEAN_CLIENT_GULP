@@ -1,4 +1,4 @@
-angular.module('walkinApp').directive('stSearch', ['$timeout', function ($timeout) {
+angular.module('crewMeanApp').directive('stSearch', ['$timeout', function ($timeout) {
     return {
         require: '^stTable',
         scope: {

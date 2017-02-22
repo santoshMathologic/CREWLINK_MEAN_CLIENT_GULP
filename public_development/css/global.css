@@ -1,51 +1,54 @@
-
-/*@import url("http://fonts.googleapis.com/css?family=Open+Sans"); */
-
-
-* {
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
+*{
+ margin : 0;
+ padding :0;
 }
 
 body{
-    
-    /*font-family: sans-serif; */
-    font-family:"times new roman";
+    font-family: 'Times New Roman', Times, serif
 }
 
-
-div#header{
-    width: 100%;
-    height: 74px;
-    background: maroon;
-    margin: -19px auto
-}
 
 div#mainContainer{
-    width: 100%;
+    width:100%;
     margin: 0 auto;
-
+    
 }
-.sidebar{
+
+div#mainContent{
+    width:auto;
+    height:500px;
+    margin-left:250px; 
+    margin-top: 10px;
+  
+   
+}
+
+@media(min-width:768px) {
+    div#mainContent {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+       
+    }
+}
+
+@media(min-width:768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 50px;
+    }
+}
+
+
+.leftsidebar{
     width: 250px;
-    opacity: 0.9;
-    float: left;
-    height:100%!important;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 25px;
-    
-    
-}
-
-.mainContent{
-    width: auto;
-    margin-left: 250px;
-    height: calc(100% - 50px)!important;
-    background: #ffffff;
-    padding :15px 0 0 0;
+    height:500px;
+    background: maroon;
 
 }
+
 
 ul#customNavigation li{
     list-style: none;
@@ -110,6 +113,7 @@ a.toggle_menu:active{
     
 }
 
+
 @media only screen and (max-width:320px){
      .sidebar{
          width: 100%;
@@ -130,6 +134,62 @@ a.toggle_menu:active{
      }
 }
 
+
+/* Header Right Icon*/
+#header ul {
+    list-style: none;
+    }
+    
+#header #welcome {
+    margin-right: 20px;
+	}
+    
+.header-icon{
+	float:left;
+	color: aliceblue;
+	margin-right: 4px;
+	}
+	
+.dropdown-toggle{
+	color: aliceblue;
+	text-decoration: none; 
+	cursor: pointer;
+}
+.fa-bell {
+	color: aliceblue;
+}
+
+.fa-sign-out{
+	color: aliceblue;
+}
+
+#header .fixed-width {
+    width: 35px;
+}
+
+#header .profile-icon{
+	margin-left: 5px; 
+	margin-right: 20px; 
+	margin-top: 22px;
+}
+
+#header .profile-icon #profile-pics{
+	border-radius: 40px; 
+	margin-top: -43px; 
+	text-decoration: none; 
+	cursor: pointer;
+	height: 40px;
+}
+
+#header .logout{
+	margin-right: 10px; 
+	margin-left: 10px;
+}
+
+.leftSideBar_hide{
+    margin-left: -250px;
+}
+
 .animate-hide{
 	-webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s;
 	-moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s;
@@ -137,119 +197,9 @@ a.toggle_menu:active{
 	transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s;
 	
 } 
-.animate-hide.ng-hide {
-	line-height: 0;
-	opacity: 0;
-}
-.sidebar-toggle-button {
-   margin-left: 209px;
-    margin-top: 40px;
-	position: absolute;
-	z-index: 2;
-	border-radius: 0px;
-}
-.right-sidebar-toggle-button {
-    margin-left: 209px;
-    margin-top: 80px;
-    position: absolute;
-    z-index: 2;
-    border-radius: 0px;
-}
+
 .page-content-no-margin{
-	width: auto;
-    margin-left:0;
-    height: calc(100% - 50px)!important;
-    background: #ffffff;
-    padding: 15px 0 0 0;
+    margin-left:0!important;
+   
 	
 }
-.hide-right-sidebar{
-	opacity: 0;
-}
-.hide-toggle-button{
-	margin-left: 0px;
-    margin-top: 40px;
-    position: absolute;
-    z-index: 2;
-	
-}
-.hide-toggle-button-right{
-	margin-left: 0px;
-    margin-top: 80px;
-    position: absolute;
-    z-index: 2;
-	
-}
-
-.customHr{
-	width: 1063px; color: black; height: 1px; background-color:black;
-}
-.highlight {
-	color: #ff0000;
-}
-
-.angucomplete-description {
-	font-size: 12px;
-	color: grey;
-}
-
-.angucomplete-dropdown {
-	overflow-y: auto;
-	max-height: 200px;
-}
-.userPlans a:focus,.userPlans a:hover {
-    text-decoration: none;
-}
-.collapseable {
-	
-    border-left: 4px solid silver;
-    background-color:#000000;
-}
-
-.rightArrow {
-    position:relative;
-}    
-.rightArrow:before {
-    content: "\f104";
-    font-family: FontAwesome;
-    position: absolute;
-    top: 5px;
-    right: 20px;
- }
-
- .leftArrow {
-    position:relative;
-}    
-.leftArrow:before {
-     content: "\f107";
-    font-family: FontAwesome;
-    position: absolute;
-    top: 5px;
-    right: 20px;
- }
- 
-.show {
-	opacity: 0;
-	-webkit-transition: opacity .25s ease-in-out;
-	-moz-transition: opacity .25s ease-in-out;
-	
-	transition: opacity .25s ease-in-out;
-}
-
-.show.end {
-  
--webkit-transition: opacity 2s ease-in-out;
--moz-transition: opacity 2s ease-in-out;
-transition: opacity 2s ease-in-out;
-}
-
-.sidebar_Toggle_Button{
-	margin-top: 5px;
-    border-radius: 0px;
-    margin-left: -260px;
-}
-
-
-
-
- 

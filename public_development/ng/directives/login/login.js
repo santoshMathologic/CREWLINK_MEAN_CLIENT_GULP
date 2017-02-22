@@ -10,7 +10,7 @@ angular.module('crewMeanApp')
                  console.log(username);
                  console.log(password);
 
-                 $state.go("home.dashboard");
+                 $state.go("home.dashboard.commondashboard");
 
 
                 };
