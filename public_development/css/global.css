@@ -46,9 +46,16 @@ div#mainContent{
     width: 250px;
     height:500px;
     background: maroon;
+    float:left;
+    margin-top:60px; 
 
 }
-
+.rsidebar{
+    width: 250px;
+    height:500px;
+    background: black;
+    float:right;
+}
 
 ul#customNavigation li{
     list-style: none;

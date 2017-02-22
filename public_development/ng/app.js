@@ -103,6 +103,7 @@ var app = angular.module("crewMeanApp", [
                                     'ng/directives/dashboard/dashboard.js',
                                     'ng/directives/dashboard/header/header.js',
                                     'ng/directives/dashboard/sidebar/sidebar.js',
+                                    'ng/directives/dashboard/rsidebar/rsidebar.js',
                                     'ng/directives/dashboard/state/state.js',
                                     'ng/util/serverTableFetch.js',
                                     'ng/util/UserService.js',
