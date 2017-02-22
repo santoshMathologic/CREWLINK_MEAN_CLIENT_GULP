@@ -203,3 +203,19 @@ a.toggle_menu:active{
    
 	
 }
+
+.toggle-Button{
+margin-top: 32px;
+    border-radius: 0px;
+    background: maroon;
+    border: 1px solid white;
+}
+.toggle-Button:hover{
+    background: maroon;
+    border: 1px solid white;
+}
+
+.toggle-Button:focus{
+    background: maroon;
+    border: 1px solid white;
+}
