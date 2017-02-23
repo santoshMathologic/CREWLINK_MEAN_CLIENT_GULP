@@ -3,18 +3,24 @@ angular.module('crewMeanApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/login/login.tmpl.html',
-            controller: function($scope,$state) {
+            controller: function($scope,$state,AuthFactory) {
 
                 $scope.login = function(username,password){
 
-                 console.log(username);
-                 console.log(password);
+              AuthFactory.login(username,password).success(function(res) {
+                 
+
+                 
 
                  $state.go("home.dashboard.commondashboard");
 
 
-                };
-                
+                }).error(function(res) {
+
+               
+                });
+
+            };
                 
             }
 
