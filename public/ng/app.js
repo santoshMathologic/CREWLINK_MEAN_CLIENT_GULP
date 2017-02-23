@@ -107,7 +107,8 @@ var app = angular.module("crewMeanApp", [
                                     'ng/directives/dashboard/state/state.js',
                                     'ng/util/serverTableFetch.js',
                                     'ng/util/UserService.js',
-                                    'ng/util/stRatio.js'
+                                    'ng/util/stRatio.js',
+                                    'ng/factory/authFactory.js'
 
                                 ]
                             });
