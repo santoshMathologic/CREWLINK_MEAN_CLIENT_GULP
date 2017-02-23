@@ -23,6 +23,7 @@
 					if (newValue) {
 						elem.css('width', (newValue) + 'px');
 						elem.css('height', 25 + 'px');
+						elem.css('border-radius', 0 + 'px');
 					}
 
 				}, true);

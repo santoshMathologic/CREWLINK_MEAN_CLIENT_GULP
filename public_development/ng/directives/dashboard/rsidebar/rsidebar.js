@@ -7,9 +7,18 @@
             templateUrl: 'ng/directives/dashboard/rSidebar/rsidebar.tmpl.html',
             replace: true,
             scope: {},
-            controller: function ($scope, $state, $window, $location, UserService, $timeout) {
-                
+            controller: function ($scope, $state, $window, $location, UserService, $rootScope, $timeout) {
 
+                $scope.names = ["choose color", "red", "green", "blue"];
+
+                
+    $scope.shared=  $scope.selectedName = $scope.names[0];
+  $rootScope.$watch('shared',function(newValue){
+  $scope.shared=$rootScope.shared;
+});
+             
+
+              
 
             }
 

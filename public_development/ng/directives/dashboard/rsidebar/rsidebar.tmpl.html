@@ -2,8 +2,11 @@
 <div>
 
 <div class="rsidebar" id="rSideBar">
-
+<button type="button" class="btn btn-primary toggle-Button fa fa-chevron-left"  id="toggleButton" style="margin-top: 1px;
+    margin-left: 1px;"></button>
  <h1>dasdasd</h1>
+ <select ng-model="selectedName"  ng-options="x for x in names"  ng-change="chooseColor()"    >
+</select>
 
 </div>
 </div>
