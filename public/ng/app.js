@@ -42,6 +42,7 @@ var app = angular.module("crewMeanApp", [
 ]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
 
+        $httpProvider.interceptors.push('TokenInterceptor');
        // $urlRouterProvider.otherwise('/home/dashboard');
         $urlRouterProvider.otherwise('/login');
         $stateProvider
@@ -108,7 +109,7 @@ var app = angular.module("crewMeanApp", [
                                     'ng/util/serverTableFetch.js',
                                     'ng/util/UserService.js',
                                     'ng/util/stRatio.js',
-                                    'ng/factory/authFactory.js'
+                                  
 
                                 ]
                             });
@@ -188,7 +189,7 @@ var app = angular.module("crewMeanApp", [
             {
                 templateUrl: 'ng/directives/login/login.directive.html',
                 url: '/login',
-                controller: 'LoginCtrl',
+                controller: 'loginCtrl',
                 resolve: {
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
@@ -196,7 +197,8 @@ var app = angular.module("crewMeanApp", [
                                 name: 'crewMeanApp',
                                 files: [
                                     'ng/directives/login/login.js',
-                                    'ng/controller/login.js'
+                                    'ng/controller/login.js',
+                                    'ng/factory/authFactory.js'
 
                                 ]
                             });

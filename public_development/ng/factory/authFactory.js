@@ -1,45 +1,41 @@
 (function () {
 
-
-    var app = angular.module("crewMeanApp", []);
-    app.factory("AuthFactory", function ($window) {
-
+    ' use strict';
+    var app = angular.module('crewMeanApp');
+    app.factory('AuthenticationFactory', function ($window) {
         return {
-
-            isLoggedIn: false,
-            isLoggedInCheck: function () {
-                return this.checkLogin();
+            isLogged: false,
+            isLoggedIn: function () {
+                return this.checkLoggedInStatus();
             },
-            checkLogin: function () {
-                if ($window.sessionStorage.token && $window.sessionStorage.user) {
-                    this.isLoggedIn = true;
+            checkLoggedInStatus: function () {
+                if ($window.sessionStorage.token && $window.sessionStorage.username) {
+                    this.isLogged = true;
+                } else {
+                    this.isLogged = false;
+                    delete this.username;
                 }
-                else {
-                    this.isLoggedIn = false;
-                    delete this.user;
-
-                }
-                return (this.isLoggedIn) ? true : false;
-
+                return (this.isLogged) ? true : false;
             }
         };
+
     });
 
-    app.factory("UserAuthFactory", function ($state,$window, $cookies, $location, $http, AuthFactory) {
+    app.factory('UserAuthFactory', function ($state, $window, $cookies, $location, $http, AuthenticationFactory) {
         return {
             login: function (username, password) {
-                return $http.post("http://localhost:4000/api/v1/login", {
+                return $http.post('http://localhost:4000/api/v1/login', {
                     username: username,
                     password: password
                 });
             },
             logout: function () {
 
-                if (AuthFactory.isLogged) {
+                if (AuthenticationFactory.isLogged) {
 
-                    AuthFactory.isLogged = false;
-                    delete AuthFactory.user;
-                    delete AuthFactory.userRole;
+                    AuthenticationFactory.isLogged = false;
+                    delete AuthenticationFactory.user;
+                    delete AuthenticationFactory.userRole;
                     delete $window.sessionStorage.userPlan;
                     delete $window.sessionStorage.token;
                     delete $window.sessionStorage.user;
@@ -51,11 +47,26 @@
                 }
 
             }
-        };
-
-
+        }
     });
 
+    app.factory('TokenInterceptor', function ($q, $window) {
+        return {
+            request: function (config) {
+                config.headers = config.headers || {};
+                if ($window.sessionStorage.token) {
+                    config.headers['X-Access-Token'] = $window.sessionStorage.token;
+                    config.headers['X-Key'] = $window.sessionStorage.userame;
+                    config.headers['Content-Type'] = config.headers['Content-Type'] || "application/json";
+                }
+                return config || $q.when(config);
+            },
 
+            response: function (response) {
+                return response || $q.when(response);
+            }
+        };
+    });
 
 })();
+

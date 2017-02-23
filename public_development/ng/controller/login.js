@@ -1,12 +1,5 @@
 ' use strict';
-angular.module('crewMeanApp').controller('LoginCtrl', function LoginController($scope) {
+var app = angular.module('crewMeanApp');
+app.controller('loginCtrl', function($scope) {
 
-    $scope.login = function(username,password){
-
-                 console.log(username);
-                 console.log(password);
-
-
-                };
-        
     });
