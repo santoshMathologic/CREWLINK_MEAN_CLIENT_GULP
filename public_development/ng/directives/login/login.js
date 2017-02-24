@@ -23,6 +23,8 @@
                             $window.sessionStorage.token = successResponse.token;
                             $window.sessionStorage.username = successResponse.userObject[0].userName; // to fetch the user details on refresh
                             $window.sessionStorage.userRole = successResponse.userObject[0].roleCode; // to fetch the user details on refresh
+
+                            
                             //$state.go("home.dashboard.commondashboard");
                             $location.path('/home/dashboard');
 

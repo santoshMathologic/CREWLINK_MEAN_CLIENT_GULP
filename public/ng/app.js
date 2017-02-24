@@ -39,7 +39,27 @@ var app = angular.module("crewMeanApp", [
     'toggle-switch',
     'ngProgress',
     'uiSwitch'
-]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
+]);
+app.factory('TokenInterceptor', function ($q, $window) {
+        return {
+            request: function (config) {
+                config.headers = config.headers || {};
+                if ($window.sessionStorage.token) {
+                    config.headers['X-Access-Token'] = $window.sessionStorage.token;
+                    config.headers['X-Key'] = $window.sessionStorage.username;
+                    config.headers['Content-Type'] = config.headers['Content-Type'] || "application/json";
+                }
+                return config || $q.when(config);
+            },
+
+            response: function (response) {
+                if(response.status === 401 || response.status === 403) {
+	                $location.path('/login');
+	            }
+                return response || $q.when(response);
+            }
+        };
+    }).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
 
         $httpProvider.interceptors.push('TokenInterceptor');
@@ -109,6 +129,7 @@ var app = angular.module("crewMeanApp", [
                                     'ng/util/serverTableFetch.js',
                                     'ng/util/UserService.js',
                                     'ng/util/stRatio.js',
+                                    'ng/factory/authFactory.js'
                                   
 
                                 ]
