@@ -129,6 +129,7 @@ app.factory('TokenInterceptor', function ($q, $window) {
                                     'ng/util/serverTableFetch.js',
                                     'ng/util/UserService.js',
                                     'ng/util/stRatio.js',
+                                    'ng/util/util.js',
                                     'ng/factory/authFactory.js'
                                   
 
@@ -201,6 +202,38 @@ app.factory('TokenInterceptor', function ($q, $window) {
                                 files: [
                                     'ng/directives/dashboard/register/register.js'
 
+                                ]
+                            });
+                    }
+                }
+            }).state('home.dashboard.train',
+            {
+                templateUrl: 'ng/directives/dashboard/trains/trains.directive.html',
+                url: '/train',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/dashboard/trains/trains.js'
+
+                                ]
+                            });
+                    }
+                }
+            }) .state('home.dashboard.trainTimeTable',
+            {
+                templateUrl: 'ng/directives/dashboard/trainTimeTable/trainTimeTable.directive.html',
+                url: '/trainTimeTable/:trainNo/:day',
+                resolve: {
+                    loadMyDirectives: function($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'crewMeanApp',
+                                files: [
+                                    'ng/directives/dashboard/trainTimeTable/trainTimeTable.js',
+                                    
                                 ]
                             });
                     }
