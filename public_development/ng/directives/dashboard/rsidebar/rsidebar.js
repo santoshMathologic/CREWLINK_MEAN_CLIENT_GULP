@@ -9,7 +9,7 @@
             scope: {},
             controller: function ($scope, $state, $window, $location, UserService, $rootScope, $timeout) {
 
-                $scope.names = ["choose color", "red", "green", "blue"];
+                $scope.names = ["choose color", "red", "green", "blue","vilot","orange","pink"];
 
                 
     $scope.shared=  $scope.selectedName = $scope.names[0];
