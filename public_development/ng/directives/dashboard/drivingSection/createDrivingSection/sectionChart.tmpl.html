@@ -1,0 +1,125 @@
+<div layout="row" ng-show="sections.length>0">
+    <section>
+        <md-table-container>
+            <table md-table >
+                <thead md-head md-order="query.order" md-on-reorder="onPaginate">
+                    <tr md-row>
+                        <th md-column class="md-column md-active"><span>Train No</span></th>
+                        <th md-column class="md-column md-active"><span>Start Day</span></th>
+                        <th md-column class="md-column md-active"><span>Departure Day</span></th>
+                        <th md-column class="md-column md-active"><span>Departure</span></th>
+                        <th md-column class="md-column md-active"><span>From Station</span></th>
+                        <th md-column class="md-column md-active"><span>To Station</span></th>
+                        <th md-column class="md-column md-active"><span>Arrival Day</span></th>
+                        <th md-column class="md-column md-active"><span>Arrival</span></th>
+                        <th md-column class="md-column md-active"><span>Distance(Km)</span></th>
+                        <th md-column class="md-column md-active"><span>Duration(min)</span></th>
+                        <th md-column class="md-column md-active"><span>Loco Type</span></th>
+
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="section in sections">
+                        <td md-cell>{{section.trainNo}}</td>
+                        <td md-cell>{{section.startDay+1}}</td>
+                        <td md-cell>{{section.departureDay+1}}</td>
+                        <td md-cell>{{section.departureTime}}</td>
+                        <td md-cell>{{section.fromStation}}</td>
+                        <td md-cell>{{section.toStation}}</td>
+                        <td md-cell>{{section.arrivalDay+1}}</td>
+                        <td md-cell>{{section.arrivalTime}}</td>
+                        <td md-cell>{{section.distance}}</td>
+                        <td md-cell>{{section.duration}}</td>
+                        <td md-cell>{{section.locoType}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </section>
+    
+</div>
+
+<div layout="row" layout-align="center" ng-show="trainStations.length>0">
+    <button class="md-raised md-primary md-button pull-right" type="submit" ng-click="saveSection($event)">
+                                Save
+    </button>
+</div>
+
+<div flex layout-fill>
+    <div id="{{chartId}}"></div>
+</div>
+
+<div layout="row" layout-fill>
+    <md-content layout-padding id="newStationDetailsDiv" class="tooltip" style="display:none">
+        <form name="newStationForm">
+            <div layout-gt-sm="row" style="max-height: 50px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Station Code</label>
+                    <input required ng-model="newStationCode" required/>
+
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row" style="max-height: 50px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Distance (KM)</label>
+                    <input required ng-model="newStationDistance" id="newStationDistance" type="number" ng-pattern="/[0-9]$/"
+                        required/>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row" style="max-height: 50px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Arrival Time</label>
+                    <input required ng-model="newStationArrivalTime" placeholder="HH:MM" ng-pattern="/[0-9]{2}:[0-9]{2}$/" required/>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row" style="max-height: 50px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Departure Time</label>
+                    <input required ng-model="newStationDepartureTime" placeholder="HH:MM" ng-pattern="/[0-9]{2}:[0-9]{2}$/" required/>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row" style="max-height: 50px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <button class="md-raised md-primary md-button md-ink-ripple" type="submit" ng-click="addNewStation();">
+                        <span>Add Station</span>
+                        <div class="md-ripple-container"></div>
+                    </button>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <button class="md-raised md-warn md-button md-ink-ripple" type="submit" ng-click="removeNewStation();">
+                        <span>close</span>
+                        <div class="md-ripple-container"></div>
+                    </button>
+                </md-input-container>
+            </div>
+        </form>
+    </md-content>
+</div>
+
+<div layout="row" layout-fill>
+    <md-content layout-padding id="newChangeDiv" class="tooltip" style="display:none">
+        <form name="newChangeForm">
+            <div layout-gt-sm="row" style="max-height: 50px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Loco Type</label>
+                    <input required ng-model="newChangeLocoType" name="locoType" ng-required/>
+
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row" style="max-height: 50px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <button class="md-raised md-primary md-button md-ink-ripple" type="submit" ng-click="setStationAsLocoChange(newChangeStation);">
+                        <span>Add Loco Change</span>
+                        <div class="md-ripple-container"></div>
+                    </button>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <button class="md-raised md-warn md-button md-ink-ripple" type="submit" ng-click="closeNewChange();">
+                        <span>close</span>
+                        <div class="md-ripple-container"></div>
+                    </button>
+                </md-input-container>
+            </div>
+        </form>
+    </md-content>
+</div>

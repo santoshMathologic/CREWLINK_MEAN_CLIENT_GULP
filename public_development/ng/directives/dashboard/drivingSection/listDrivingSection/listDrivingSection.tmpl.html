@@ -1,0 +1,175 @@
+<div style="width:1200px; margin:50px auto;">
+    <style>
+        table.md-table:not(.md-row-select) td.md-cell:nth-child(n+2):nth-last-child(n+2),
+        table.md-table:not(.md-row-select) th.md-column:nth-child(n+2):nth-last-child(n+2) {
+            padding: 0 0 0 0;
+        }
+        
+        table.md-table th.md-column,
+        table.md-table th.md-column.md-active,
+        table.md-table th.md-column.md-active md-icon {
+            color: rgba(0, 0, 0, .87);
+        }
+    </style>
+    <md-content class="md-whiteframe-16dp" style="background: white;">
+        <div class="row">
+            <div layout-align="start center">
+                <h1>Driving Sections</h1>
+                </br>
+                <md-input-container flex="20" style="margin-top: -7px;">
+                    <label>Day</label>
+                    <md-select ng-model="day" aria-placeholder="Day">
+                        <md-option value="all">All </md-option>
+                        <md-option ng-repeat="trainRunningDay in trainRunningDays" value="{{trainRunningDay}}">
+                            {{Days[trainRunningDay]}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container flex="20" style="margin-top: -7px;width:100px;">
+                    <label>Section Type</label>
+                    <md-select ng-model="query.sectionType" aria-placeholder="Section Type">
+                        <md-option value="all">All </md-option>
+                        <md-option value="userPlanSection">
+                            User Plan Sections
+                        </md-option>
+                        <md-option value="globalSection">
+                            Global Sections
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <section>
+                <md-table-container>
+                    <table md-table md-progress="getSections">
+                        <thead md-head md-order="query.order" md-on-reorder="onPaginate">
+                            <tr md-row>
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>Train No</label>
+                                            <input type="text" ng-model="query.trainNo" ng-model-options="trainNo.options" aria-invalid="false">
+                                        </md-input-container>
+
+                                    </form>
+                                </th>
+
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>Start Day</label>
+                                            <input type="text" ng-model="query.startDay" ng-model-options="startDay.options" aria-invalid="false">
+                                        </md-input-container>
+
+                                    </form>
+                                </th>
+                                <th md-column>
+                                </th>
+
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>Departure</label>
+                                            <input type="text" ng-model="query.departureTime" ng-model-options="departureTime.options" aria-invalid="false">
+                                        </md-input-container>
+                                    </form>
+                                </th>
+
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>From Station</label>
+                                            <input type="text" ng-model="query.fromStation" ng-model-options="fromStation.options" aria-invalid="false">
+                                        </md-input-container>
+                                    </form>
+                                </th>
+
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>To Station</label>
+                                            <input type="text" ng-model="query.toStation" ng-model-options="toStation.options" aria-invalid="false">
+                                        </md-input-container>
+                                    </form>
+                                </th>
+                                <th md-column>
+                                </th>
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>Arrival</label>
+                                            <input type="text" ng-model="query.arrivalTime" ng-model-options="arrivalTime.options" aria-invalid="false">
+                                        </md-input-container>
+                                    </form>
+                                </th>
+
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>Distance</label>
+                                            <input type="text" ng-model="query.distance" ng-model-options="distance.options" aria-invalid="false">
+                                        </md-input-container>
+                                    </form>
+                                </th>
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>Duration</label>
+                                            <input type="text" ng-model="query.duration" ng-model-options="duration.options" aria-invalid="false">
+                                        </md-input-container>
+                                    </form>
+                                </th>
+                                <th md-column>
+                                    <form flex="" name="filter.form" class="ng-valid flex ng-dirty ng-valid-parse" style="">
+                                        <md-input-container class="md-block">
+                                            <label>Loco Type</label>
+                                            <input type="text" ng-model="query.locoType" ng-model-options="locoType.options" aria-invalid="false">
+                                        </md-input-container>
+                                    </form>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </md-table-container>
+
+                <md-table-container>
+                    <table md-table md-progress="getStations">
+                        <thead md-head md-order="query.order" md-on-reorder="onPaginate">
+                            <tr md-row>
+                                <th md-column class="md-column md-active" md-order-by="trainNo"><span>Train No</span></th>
+                                <th md-column class="md-column md-active" md-order-by="startDay"><span>Start Day</span></th>
+                                <th md-column class="md-column md-active" md-order-by="departureDay"><span>Departure Day</span></th>
+                                <th md-column class="md-column md-active"><span>Departure</span></th>
+                                <th md-column class="md-column md-active" md-order-by="fromStation"><span>From Station</span></th>
+                                <th md-column class="md-column md-active" md-order-by="toStation"><span>To Station</span></th>
+                                <th md-column class="md-column md-active" md-order-by="arrivalDay"><span>Arrival Day</span></th>
+                                <th md-column class="md-column md-active"><span>Arrival</span></th>
+                                <th md-column class="md-column md-active" md-order-by="distance"><span>Distance(Km)</span></th>
+                                <th md-column class="md-column md-active" md-order-by="duration"><span>Duration</span></th>
+                                <th md-column class="md-column md-active" md-order-by="locoType"><span>Loco Type</span></th>
+
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-select="train" md-select-id="trainNo" style="cursor : pointer" md-auto-select ng-repeat="section in sections">
+                                <td md-cell>{{section.trainNo}}</td>
+                                <td md-cell>{{(day == 'all')?section.startDay+1:Days[section.departureDay]}}</td>
+                                <td md-cell>{{(day == 'all' || day == '')?section.departureDay+1:Days[section.departureDay]}}</td>
+                                <td md-cell>{{section.departureTime}}</td>
+                                <td md-cell>{{section.fromStation}}</td>
+                                <td md-cell>{{section.toStation}}</td>                                
+                                <td md-cell>{{(day == 'all' || day == '')?section.arrivalDay+1:Days[section.arrivalDay]}}</td>
+                                <td md-cell>{{section.arrivalTime}}</td>
+                                <td md-cell>{{section.distance}}</td>
+                                <td md-cell>{{section.duration}}</td>
+                                <td md-cell>{{section.locoType}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+
+                <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{totalRecords}}"
+              md-boundary-links="true"  md-on-paginate="onPaginate" md-page-select></md-table-pagination>
+            </section>
+        </div>
+    </md-content>
+</div>
