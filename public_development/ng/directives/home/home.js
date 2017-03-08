@@ -4,8 +4,9 @@ angular.module('crewMeanApp')
             restrict: 'E',
             replace:true,
             templateUrl: 'ng/directives/home/home.tmpl.html',
-            controller: function($scope) {
+            controller: function($scope,UserService) {
                 
+                UserService.config.sidebarTrigger = false;
                 
             }
 

@@ -274,23 +274,7 @@ app.factory('TokenInterceptor', function ($q, $window) {
               });
             }
           }
-    }).state('home.dashboard.commondashboard',{
-        templateUrl:'ng/directives/dashboard/commondashboard/commondashboard.directive.html',
-        url:'/commondsboard',
-        resolve: {
-            loadMyFiles:function($ocLazyLoad) {
-              return $ocLazyLoad.load({
-                name:'crewMeanApp',
-                files:[
-                       "ng/directives/dashboard/commondashboard/commondashboard.js",
-                       'ng/directives/dashboard/state/state.js'
-
-                       
-                ]
-              });
-            }
-          }
-    	}) .state('home.dashboard.createCompany',
+    }).state('home.dashboard.createCompany',
             {
                 templateUrl: 'ng/directives/dashboard/company/create/company.directive.html',
                 url: '/createCompany',
